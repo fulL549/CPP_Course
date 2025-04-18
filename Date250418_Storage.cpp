@@ -2,49 +2,49 @@
 using namespace std;
 #include<string>
 /*
-ÄÚ´æ·ÖÇøÄ£ÐÍ
-½«ÄÚ´æ´ó·½Ïò»®·ÖÎª4¸öÇøÓò
+å†…å­˜åˆ†åŒºæ¨¡åž‹
+å°†å†…å­˜å¤§æ–¹å‘åˆ’åˆ†ä¸º4ä¸ªåŒºåŸŸ
 
-1.´úÂëÇø£º
-´æ·Åº¯ÊýÌåµÄ¶þ½øÖÆ´úÂë£¬ÓÉ²Ù×÷ÏµÍ³½øÐÐ¹ÜÀíµÄ
-¹²ÏíµÄ¡¢Ö»¶ÁµÄ
+1.ä»£ç åŒºï¼š
+å­˜æ”¾å‡½æ•°ä½“çš„äºŒè¿›åˆ¶ä»£ç ï¼Œç”±æ“ä½œç³»ç»Ÿè¿›è¡Œç®¡ç†çš„
+å…±äº«çš„ã€åªè¯»çš„
 
-2.È«¾ÖÇø£º
-´æ·ÅÈ«¾Ö±äÁ¿¡¢¾²Ì¬±äÁ¿¡¢³£Á¿Çø£¨×Ö·û´®³£Á¿ºÍÆäËû³£Á¿£©
+2.å…¨å±€åŒºï¼š
+å­˜æ”¾å…¨å±€å˜é‡ã€é™æ€å˜é‡ã€å¸¸é‡åŒºï¼ˆå­—ç¬¦ä¸²å¸¸é‡å’Œå…¶ä»–å¸¸é‡ï¼‰
 
-3.Õ»Çø£º
-ÓÉ±àÒëÆ÷×Ô¶¯·ÖÅäÊÍ·Å, ´æ·Åº¯ÊýµÄ²ÎÊýÖµ,¾Ö²¿±äÁ¿µÈ
-×¢Òâ²»Òª·µ»Ø¾Ö²¿±äÁ¿µÄµØÖ·£¬Õ»Çø¿ª±ÙµÄÊý¾ÝÓÉ±àÒëÆ÷×Ô¶¯ÊÍ·Å
+3.æ ˆåŒºï¼š
+ç”±ç¼–è¯‘å™¨è‡ªåŠ¨åˆ†é…é‡Šæ”¾, å­˜æ”¾å‡½æ•°çš„å‚æ•°å€¼,å±€éƒ¨å˜é‡ç­‰
+æ³¨æ„ä¸è¦è¿”å›žå±€éƒ¨å˜é‡çš„åœ°å€ï¼Œæ ˆåŒºå¼€è¾Ÿçš„æ•°æ®ç”±ç¼–è¯‘å™¨è‡ªåŠ¨é‡Šæ”¾
 
-4.¶ÑÇø£º
-ÓÉ³ÌÐòÔ±·ÖÅäºÍÊÍ·Å,Èô³ÌÐòÔ±²»ÊÍ·Å,³ÌÐò½áÊøÊ±ÓÉ²Ù×÷ÏµÍ³»ØÊÕ
-?ÔÚC++ÖÐÖ÷ÒªÀûÓÃnewÔÚ¶ÑÇø¿ª±ÙÄÚ´æ£¬deleteÊÍ·Å
+4.å †åŒºï¼š
+ç”±ç¨‹åºå‘˜åˆ†é…å’Œé‡Šæ”¾,è‹¥ç¨‹åºå‘˜ä¸é‡Šæ”¾,ç¨‹åºç»“æŸæ—¶ç”±æ“ä½œç³»ç»Ÿå›žæ”¶
+?åœ¨C++ä¸­ä¸»è¦åˆ©ç”¨newåœ¨å †åŒºå¼€è¾Ÿå†…å­˜ï¼Œdeleteé‡Šæ”¾
 */
 
 /*
-´úÂëÊ¾Àý
+ä»£ç ç¤ºä¾‹
 */
-//È«¾Ö±äÁ¿
+//å…¨å±€å˜é‡
 int g_a = 10;
 
-//È«¾Ö³£Á¿
+//å…¨å±€å¸¸é‡
 const int c_g_a = 10;
 
 int main() {
 
-	//¾Ö²¿±äÁ¿
+	//å±€éƒ¨å˜é‡
 	int a = 10;
 
     string s="hello world";
-    //×Ö·û´®³£Á¿
-    cout << "×Ö·û´®³£Á¿µØÖ·Îª£º " << &s<< endl;
+    //å­—ç¬¦ä¸²å¸¸é‡
+    cout << "å­—ç¬¦ä¸²å¸¸é‡åœ°å€ä¸ºï¼š " << &s<< endl;
 
-	//¾²Ì¬±äÁ¿
+	//é™æ€å˜é‡
 	static int s_a = 10;
 
-    //new¿ª±Ù¶¯Ì¬ÄÚ´æ
+    //newå¼€è¾ŸåŠ¨æ€å†…å­˜
     int* new_a=new int(10);
-    //deleteÊÍ·ÅÄÚ´æ
+    //deleteé‡Šæ”¾å†…å­˜
     delete new_a;
 
 
@@ -54,26 +54,26 @@ int main() {
 
 
 /*
-new²Ù×÷·û
-C++ÖÐÊ¹ÓÃnew²Ù×÷·ûÔÚ¶ÑÇø¿ª±ÙÄÚ´æ£¬·µ»ØÖµÊÇÖ¸ÕëÀàÐÍ
-Ê¹ÓÃdeleteÊÍ·ÅÄÚ´æ
+newæ“ä½œç¬¦
+C++ä¸­ä½¿ç”¨newæ“ä½œç¬¦åœ¨å †åŒºå¼€è¾Ÿå†…å­˜ï¼Œè¿”å›žå€¼æ˜¯æŒ‡é’ˆç±»åž‹
+ä½¿ç”¨deleteé‡Šæ”¾å†…å­˜
 */
 
 /*
-Ê¾Àý
+ç¤ºä¾‹
 */
 int* func()
 {
-    //ÔÚ¶ÑÇø¿ª±ÙÄÚ´æ
+    //åœ¨å †åŒºå¼€è¾Ÿå†…å­˜
     int *p = new int(10);
-    //·µ»ØÖ¸Õë
+    //è¿”å›žæŒ‡é’ˆ
     return p;
 }
 int main()
 {
     int *p=func();
 
-    //ÊÍ·Å¶ÑÇøÄÚ´æ
+    //é‡Šæ”¾å †åŒºå†…å­˜
     delete p;
 
     system("pause");
@@ -82,11 +82,11 @@ int main()
 
 
 /*
-Ê¾Àý£º¿ª±ÙÊý×é
+ç¤ºä¾‹ï¼šå¼€è¾Ÿæ•°ç»„
 */
 int main() {
 
-	int* arr = new int[10];//¿ª±Ù10¸öintÀàÐÍµÄÊý×é
+	int* arr = new int[10];//å¼€è¾Ÿ10ä¸ªintç±»åž‹çš„æ•°ç»„
 
 	for (int i = 0; i < 10; i++)
 	{
@@ -97,7 +97,7 @@ int main() {
 	{
 		cout << arr[i] << endl;
 	}
-	//ÊÍ·ÅÊý×é delete ºó¼Ó []
+	//é‡Šæ”¾æ•°ç»„ delete åŽåŠ  []
 	delete[] arr;
 
 	system("pause");
