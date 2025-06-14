@@ -1,17 +1,23 @@
 #include<iostream>
 using namespace std;
-
+#include<vector>
+#include<algorithm>
 /*
-è¿ç®—ç¬¦é‡è½½
-å¯¹å·²æœ‰çš„è¿ç®—ç¬¦é‡æ–°è¿›è¡Œå®šä¹‰ï¼Œèµ‹äºˆå…¶å¦ä¸€ç§åŠŸèƒ½ï¼Œä»¥é€‚åº”ä¸åŒçš„æ•°æ®ç±»å‹
-
-å†…ç½®çš„æ•°æ®ç±»å‹çš„è¡¨è¾¾å¼çš„è¿ç®—ç¬¦æ˜¯ä¸ä¼šæ”¹å˜çš„
-ä¸è¦æ»¥ç”¨è¿ç®—ç¬¦é‡è½½
+ÔËËã·ûÖØÔØ
+	¶ÔÒÑÓĞµÄÔËËã·ûÖØĞÂ½øĞĞ¶¨Òå£¬¸³ÓèÆäÁíÒ»ÖÖ¹¦ÄÜ£¬ÒÔÊÊÓ¦²»Í¬µÄÊı¾İÀàĞÍ
+	ÄÚÖÃµÄÊı¾İÀàĞÍµÄ±í´ïÊ½µÄÔËËã·ûÊÇ²»»á¸Ä±äµÄ
+	²»ÒªÀÄÓÃÔËËã·ûÖØÔØ
+ÖØÔØµÄÁ½ÖÖ·½·¨£º
+	Àà³ÉÔ±º¯ÊıÔËËã·ûÖØÔØ£¨ÀàÄÚ¶¨Òå£©
+	ÓÑÔªº¯ÊıÔËËã·ûÖØÔØ£¨ÀàÍâ¶¨Òå£©
+¿ÉÖØÔØÔËËã·û£ºÓĞºÜ¶à..
+²»¿ÉÖØÔØÔËËã·û£ºeg: ×÷ÓÃÓò½âÊÍ:: ³ÉÔ±·ÃÎÊ. Í¨¹ı³ÉÔ±Ö¸ÕëµÄ³ÉÔ±·ÃÎÊ.* ÈıÔªÌõ¼ş?: ×Ö½Ú´óĞ¡sizeof Ô¤´¦Àí·ûºÅ#
+	Ò»Ğ©¹æÔòÏŞÖÆ£º&&¡¢||¡¢ÔËËã·ûÓÅÏÈ¼¶µÈ
 */
 
 /*
-1.åŠ å·+
-å®ç°ä¸¤ä¸ªè‡ªå®šä¹‰æ•°æ®ç±»å‹ç›¸åŠ çš„è¿ç®—
+1.¼ÓºÅ+
+ÊµÏÖÁ½¸ö×Ô¶¨ÒåÊı¾İÀàĞÍÏà¼ÓµÄÔËËã
 */
 class Person {
 public:
@@ -21,7 +27,7 @@ public:
         this->m_A = a;
         this->m_B = b;
     }
-    //æˆå‘˜å‡½æ•°å®ç° + å·è¿ç®—ç¬¦é‡è½½
+    //³ÉÔ±º¯ÊıÊµÏÖ + ºÅÔËËã·ûÖØÔØ
     Person operator+(const Person& p) {
         Person temp;
         temp.m_A = this->m_A + p.m_A;
@@ -33,7 +39,7 @@ public:
     int m_B;
 };
 
-//å…¨å±€å‡½æ•°å®ç° - å·è¿ç®—ç¬¦é‡è½½
+//È«¾Öº¯ÊıÊµÏÖ - ºÅÔËËã·ûÖØÔØ
 Person operator-(const Person& p1, const Person& p2) {
 	Person temp(0,0);
 	temp.m_A = p1.m_A - p2.m_A;
@@ -41,7 +47,7 @@ Person operator-(const Person& p1, const Person& p2) {
 	return temp;
 }
 
-//è¿ç®—ç¬¦é‡è½½ å¯ä»¥å‘ç”Ÿå‡½æ•°é‡è½½ 
+//ÔËËã·ûÖØÔØ ¿ÉÒÔ·¢Éúº¯ÊıÖØÔØ 
 Person operator+(const Person& p2, int val)  
 {
     Person temp;
@@ -55,11 +61,11 @@ void test() {
     Person p1(10, 10);
     Person p2(20, 20);
 
-    //æˆå‘˜å‡½æ•°æ–¹å¼
-    Person p3 = p2 + p1;  //ç›¸å½“äº p2.operaor+(p1)
+    //³ÉÔ±º¯Êı·½Ê½
+    Person p3 = p2 + p1;  //Ïàµ±ÓÚ p2.operaor+(p1)
     cout << "mA:" << p3.m_A << " mB:" << p3.m_B << endl;
 
-    Person p4 = p3 + 10; //ç›¸å½“äº operator+(p3,10)
+    Person p4 = p3 + 10; //Ïàµ±ÓÚ operator+(p3,10)
     cout << "mA:" << p4.m_A << " mB:" << p4.m_B << endl;
 
     Person p5 = p2-p1;
@@ -72,17 +78,56 @@ int main() {
     system("pause");
     return 0;
 }
+/*
+¶ÔÏóÒşÊ½×ª»»
+Èç¹û¶ÔÏóT´æÔÚ¹¹Ôìº¯ÊıT(T1)£¬ÔòT1ÀàĞÍ¶ÔÏó£¨»òÊµ²Î£©¿ÉÒşÊ½×ª»¯ÎªTÀàĞÍ¶ÔÏó£¨»òĞÎ²Î£©
+explicit¹Ø¼ü×Ö£¨·ÅÔÚº¯Êı·µ»ØÖµÀàĞÍÇ°Ãæ£©¿ÉÒÔ¹Ø±Õ×Ô¶¯ÀàĞÍ×ª»»
+tips:ÒşÊ½×ª»»Ê±nullptr¿ÕÖ¸ÕëÓë0µÄ²»Í¬
+*/
 
+class Integer {
+public:
+    int x;
+    Integer(int x=0):x(x) {}
+
+	//³ÉÔ±º¯Êı±ØĞëĞ´ÔÚÀàÌåÄÚ£¬²¢ÇÒÃ»ÓĞÁ½¸ö²ÎÊı£¬Ö»ÓĞÒ»¸ö²ÎÊı£¨ÓÒ²Ù×÷Êı£©£¬×ó²Ù×÷ÊıÊÇthisÖ¸ÕëËù´ú±íµÄ¶ÔÏó
+    friend Integer operator+(const Integer &lhs,const Integer &rhs){//È«¾Öº¯ÊıÃ»ÓĞthis
+        return lhs.x + rhs.x;
+    }
+    friend ostream& operator<<(ostream& o, const Integer &hs) {
+        o << hs.x;
+        return o;
+    } 
+};
+
+int main() {
+    string s;
+    s = "Hello";//ÒşÊ½×ª»»: const char*->string
+    cout << s << endl;
+    
+    Integer i1(3), i2;
+    i2 = 1.1 + i1;//ÒşÊ½×ª»»£ºdouble->int int->Integer
+    cout << i2 << endl;
+	system("pause");
+	return 0;
+}
 
 /*
-2.å·¦ç§»<<
-å¯ä»¥è¾“å‡ºè‡ªå®šä¹‰æ•°æ®ç±»å‹
-åªèƒ½ï¼ï¼é€šè¿‡å…¨å±€å‡½æ•°é‡è½½å®ç°
-é‡è½½åº§æ¤…è¿ç®—ç¬¦é…åˆå‹å…ƒå¯ä»¥å®ç°è¾“å‡ºè‡ªå®šä¹‰æ•°æ®ç±»å‹
+ÖØÔØĞ­Òé£¨ÓĞ¶à¸ö¿ÉÆ¥ÅäµÄÖØÔØº¯Êı£©
+	1.ÀàĞÍÖ±½ÓÆ¥ÅäµÄÓÅÏÈÑ¡Ôñ
+	2.constÀàĞÍÊµ²ÎÆ¥Åäconst°æ±¾
+	3.·ÇconstÊµ²ÎÓÅÏÈÆ¥Åä·Çconst°æ±¾£¬ÎŞÔò¿¼ÂÇÒşÊ½×ª»»Îªconst°æ±¾
+*/
+
+/*
+2.×óÒÆ<<£¨ÓÒÒÆ>>Í¬Àí£©
+¿ÉÒÔÊä³ö×Ô¶¨ÒåÊı¾İÀàĞÍ
+Ö»ÄÜ£¡£¡Í¨¹ıÈ«¾Öº¯ÊıÖØÔØÊµÏÖ
+ÖØÔØ×ùÒÎÔËËã·ûÅäºÏÓÑÔª¿ÉÒÔÊµÏÖÊä³ö×Ô¶¨ÒåÊı¾İÀàĞÍ
 */
 class Person {
 	friend ostream& operator<<(ostream& out, Person& p);
-    //å‹å…ƒ è®©<<é‡è½½å¯ä»¥è®¿é—®åˆ°ç§æœ‰å˜é‡æˆå‘˜
+    //ÓÑÔª ÈÃ<<ÖØÔØ¿ÉÒÔ·ÃÎÊµ½Ë½ÓĞ±äÁ¿³ÉÔ±
 public:
 	Person(int a, int b)
 	{
@@ -90,7 +135,7 @@ public:
 		this->m_B = b;
 	}
 
-	//æˆå‘˜å‡½æ•° å®ç°ä¸äº†  p << cout ä¸æ˜¯æˆ‘ä»¬æƒ³è¦çš„æ•ˆæœ
+	//³ÉÔ±º¯Êı ÊµÏÖ²»ÁË  p << cout ²»ÊÇÎÒÃÇÏëÒªµÄĞ§¹û
 	//void operator<<(Person& p){
 	//}
 
@@ -99,9 +144,9 @@ private:
 	int m_B;
 };
 
-//å…¨å±€å‡½æ•°å®ç°å·¦ç§»é‡è½½
-//ostreamå¯¹è±¡åªèƒ½æœ‰ä¸€ä¸ª
-//è¯­æ³•ï¼šè¿”å›å€¼ç±»å‹å’Œå‚æ•°ç±»å‹éƒ½æ˜¯ostream&
+//È«¾Öº¯ÊıÊµÏÖ×óÒÆÖØÔØ
+//ostream¶ÔÏóÖ»ÄÜÓĞÒ»¸ö
+//Óï·¨£º·µ»ØÖµÀàĞÍºÍ²ÎÊıÀàĞÍ¶¼ÊÇostream&
 ostream& operator<<(ostream& cout, Person& p) {
 	cout << "a:" << p.m_A << " b:" << p.m_B;
 	return cout;
@@ -109,7 +154,7 @@ ostream& operator<<(ostream& cout, Person& p) {
 
 void test() {
 	Person p1(10, 20);
-	cout << p1 << endl << "hello world" << endl; //é“¾å¼ç¼–ç¨‹
+	cout << p1 << endl << "hello world" << endl; //Á´Ê½±à³Ì
 }
 
 int main() {
@@ -119,8 +164,8 @@ int main() {
 }
 
 /*
-3.é€’å¢++
-å®ç°è‡ªå®šä¹‰æ•°æ®ç±»å‹çš„é€’å¢è¿ç®—
+3.µİÔö++
+ÊµÏÖ×Ô¶¨ÒåÊı¾İÀàĞÍµÄµİÔöÔËËã
 */
 class MyInteger {
 	friend ostream& operator<<(ostream& out, MyInteger myint);
@@ -129,21 +174,21 @@ public:
 		m_Num = 0;
 	}
 
-	//å‰ç½®++
-	MyInteger& operator++() {
-		//å…ˆ++
+	//Ç°ÖÃ++
+	MyInteger& operator++() {//·µ»ØÖµÀàĞÍÎªÀàµÄÒıÓÃ £¨ÓÃÓÚ×óÖµ
+		//ÏÈ++
 		m_Num++;
-		//å†è¿”å›
-		return *this;
+		//ÔÙ·µ»Ø
+		return *this;//·µ»Ø·½Ê½Ò»£º·µ»Øthis×ÔÉí
 	}
 
-	//åç½®++
-    //éœ€è¦åœ¨å‚æ•°åˆ—è¡¨é‡Œæ·»åŠ intç±»å‹ï¼Œæ¥åŒºåˆ†å‰ç½®++å’Œåç½®++
-	MyInteger operator++(int) {
-		//å…ˆè¿”å›
-		MyInteger temp = *this; //è®°å½•å½“å‰æœ¬èº«çš„å€¼ï¼Œç„¶åè®©æœ¬èº«çš„å€¼åŠ 1ï¼Œä½†æ˜¯è¿”å›çš„æ˜¯ä»¥å‰çš„å€¼ï¼Œè¾¾åˆ°å…ˆè¿”å›å++ï¼›
+	//ºóÖÃ++
+    //ĞèÒªÔÚ²ÎÊıÁĞ±íÀïÌí¼ÓintÀàĞÍ£¬À´Çø·ÖÇ°ÖÃ++ºÍºóÖÃ++
+	MyInteger operator++(int) {//·µ»ØÖµÎªÀàµÄÀàĞÍ £¨ÓÃÓÚÓÒÖµ
+		//ÏÈ·µ»Ø
+		MyInteger temp = *this; //¼ÇÂ¼µ±Ç°±¾ÉíµÄÖµ£¬È»ºóÈÃ±¾ÉíµÄÖµ¼Ó1£¬µ«ÊÇ·µ»ØµÄÊÇÒÔÇ°µÄÖµ£¬´ïµ½ÏÈ·µ»Øºó++£»
 		m_Num++;
-		return temp;//è¿”å›å¤åˆ¶çš„å¯¹è±¡
+		return temp;//·µ»Ø·½Ê½¶ş£º·µ»Ø¸´ÖÆµÄ¶ÔÏó
 	}
 private:
 	int m_Num;
@@ -154,14 +199,14 @@ ostream& operator<<(ostream& out, MyInteger myint) {
 	return out;
 }
 
-//å‰ç½®++ å…ˆ++ å†è¿”å›
+//Ç°ÖÃ++ ÏÈ++ ÔÙ·µ»Ø
 void test01() {
 	MyInteger myInt;
 	cout << ++myInt << endl;
 	cout << myInt << endl;
 }
 
-//åç½®++ å…ˆè¿”å› å†++
+//ºóÖÃ++ ÏÈ·µ»Ø ÔÙ++
 void test02() {
 	MyInteger myInt;
 	cout << myInt++ << endl;
@@ -177,38 +222,38 @@ int main() {
 
 
 /*
-4.èµ‹å€¼=
-å¯¹è‡ªå®šä¹‰ç±»å‹çš„å±æ€§è¿›è¡Œå€¼æ‹·è´
-æ³¨æ„ï¼šå¦‚æœç±»ä¸­æœ‰å±æ€§æŒ‡å‘å †åŒºï¼ˆnewï¼‰ï¼Œåšèµ‹å€¼æ“ä½œæ—¶ä¹Ÿä¼šå‡ºç°æ·±æµ…æ‹·è´é—®é¢˜
+4.¸³Öµ=
+¶Ô×Ô¶¨ÒåÀàĞÍµÄÊôĞÔ½øĞĞÖµ¿½±´
+×¢Òâ£ºÈç¹ûÀàÖĞÓĞÊôĞÔÖ¸Ïò¶ÑÇø£¨new£©£¬×ö¸³Öµ²Ù×÷Ê±Ò²»á³öÏÖÉîÇ³¿½±´ÎÊÌâ
 
-c++ç¼–è¯‘å™¨è‡³å°‘ç»™ä¸€ä¸ªç±»æ·»åŠ 4ä¸ªå‡½æ•°ï¼š
-    a.é»˜è®¤æ„é€ å‡½æ•°(æ— å‚ï¼Œå‡½æ•°ä½“ä¸ºç©º)
-    b.é»˜è®¤ææ„å‡½æ•°(æ— å‚ï¼Œå‡½æ•°ä½“ä¸ºç©º)
-    c.é»˜è®¤æ‹·è´æ„é€ å‡½æ•°ï¼Œå¯¹å±æ€§è¿›è¡Œå€¼æ‹·è´
-    d.èµ‹å€¼è¿ç®—ç¬¦ operator=, å¯¹å±æ€§è¿›è¡Œå€¼æ‹·è´
+c++±àÒëÆ÷ÖÁÉÙ¸øÒ»¸öÀàÌí¼Ó4¸öº¯Êı£º
+    a.Ä¬ÈÏ¹¹Ôìº¯Êı(ÎŞ²Î£¬º¯ÊıÌåÎª¿Õ)
+    b.Ä¬ÈÏÎö¹¹º¯Êı(ÎŞ²Î£¬º¯ÊıÌåÎª¿Õ)
+    c.Ä¬ÈÏ¿½±´¹¹Ôìº¯Êı£¬¶ÔÊôĞÔ½øĞĞÖµ¿½±´
+    d.¸³ÖµÔËËã·û operator=, ¶ÔÊôĞÔ½øĞĞÖµ¿½±´
 */
 class Person
 {
 public:
 	Person(int age)
 	{
-		//å°†å¹´é¾„æ•°æ®å¼€è¾Ÿåˆ°å †åŒº
+		//½«ÄêÁäÊı¾İ¿ª±Ùµ½¶ÑÇø
 		m_Age = new int(age);
 	}
 
-	//é‡è½½èµ‹å€¼è¿ç®—ç¬¦ 
+	//ÖØÔØ¸³ÖµÔËËã·û 
 	Person& operator=(Person &p)
 	{
-    	//ç¼–è¯‘å™¨æä¾›çš„ä»£ç æ˜¯æµ…æ‹·è´
+    	//±àÒëÆ÷Ìá¹©µÄ´úÂëÊÇÇ³¿½±´
 		//m_Age = p.m_Age;
         
-		if (m_Age != NULL)//å…ˆé‡Šæ”¾
+		if (m_Age != NULL)//ÏÈÊÍ·Å
 		{
 			delete m_Age;
 			m_Age = NULL;
 		}
-		//æä¾›æ·±æ‹·è´ è§£å†³æµ…æ‹·è´çš„é—®é¢˜
-		m_Age = new int(*p.m_Age);//å†åˆ†é…
+		//Ìá¹©Éî¿½±´ ½â¾öÇ³¿½±´µÄÎÊÌâ
+		m_Age = new int(*p.m_Age);//ÔÙ·ÖÅä
 		return *this;
 	}
 
@@ -221,7 +266,7 @@ public:
 		}
 	}
 
-	//å¹´é¾„çš„æŒ‡é’ˆ
+	//ÄêÁäµÄÖ¸Õë
 	int *m_Age;
 
 };
@@ -232,10 +277,10 @@ void test01()
 	Person p1(18);
 	Person p2(20);
 	Person p3(30);
-	p3 = p2 = p1; //è¿ç­‰ èµ‹å€¼æ“ä½œ
-	cout << "p1çš„å¹´é¾„ä¸ºï¼š" << *p1.m_Age << endl;
-	cout << "p2çš„å¹´é¾„ä¸ºï¼š" << *p2.m_Age << endl;
-	cout << "p3çš„å¹´é¾„ä¸ºï¼š" << *p3.m_Age << endl;
+	p3 = p2 = p1; //Á¬µÈ ¸³Öµ²Ù×÷
+	cout << "p1µÄÄêÁäÎª£º" << *p1.m_Age << endl;
+	cout << "p2µÄÄêÁäÎª£º" << *p2.m_Age << endl;
+	cout << "p3µÄÄêÁäÎª£º" << *p3.m_Age << endl;
 }
 
 int main() {
@@ -245,8 +290,8 @@ int main() {
 }
 
 /*
-5.å…³ç³»== !=
-ä»¥è®©ä¸¤ä¸ªè‡ªå®šä¹‰ç±»å‹å¯¹è±¡è¿›è¡Œå¯¹æ¯”æ“ä½œ
+5.¹ØÏµ== !=
+ÒÔÈÃÁ½¸ö×Ô¶¨ÒåÀàĞÍ¶ÔÏó½øĞĞ¶Ô±È²Ù×÷
 */
 class Person
 {
@@ -290,25 +335,25 @@ void test01()
 	//int a = 0;
 	//int b = 0;
 
-	Person a("å­™æ‚Ÿç©º", 18);
-	Person b("å­™æ‚Ÿç©º", 18);
+	Person a("ËïÎò¿Õ", 18);
+	Person b("ËïÎò¿Õ", 18);
 
 	if (a == b)
 	{
-		cout << "aå’Œbç›¸ç­‰" << endl;
+		cout << "aºÍbÏàµÈ" << endl;
 	}
 	else
 	{
-		cout << "aå’Œbä¸ç›¸ç­‰" << endl;
+		cout << "aºÍb²»ÏàµÈ" << endl;
 	}
 
 	if (a != b)
 	{
-		cout << "aå’Œbä¸ç›¸ç­‰" << endl;
+		cout << "aºÍb²»ÏàµÈ" << endl;
 	}
 	else
 	{
-		cout << "aå’Œbç›¸ç­‰" << endl;
+		cout << "aºÍbÏàµÈ" << endl;
 	}
 }
 
@@ -320,22 +365,25 @@ int main() {
 
 
 /*
-6.å‡½æ•°è°ƒç”¨()
-ç”±äºé‡è½½åä½¿ç”¨çš„æ–¹å¼éå¸¸åƒå‡½æ•°çš„è°ƒç”¨ï¼Œå› æ­¤ç§°ä¸ºä»¿å‡½æ•°
-ä»¿å‡½æ•°æ²¡æœ‰å›ºå®šå†™æ³•ï¼Œéå¸¸çµæ´»
+6.º¯Êıµ÷ÓÃ()
+º¯Êı¶ÔÏó£º 
+	ÎŞ×´Ì¬ Ã»ÓĞÊ¹ÓÃ¶ÔÏóµÄ³ÉÔ±
+	ÓĞ×´Ì¬ 
+ÓÉÓÚÖØÔØºóÊ¹ÓÃµÄ·½Ê½·Ç³£Ïñº¯ÊıµÄµ÷ÓÃ£¬Òò´Ë³ÆÎª·Âº¯Êı
+·Âº¯ÊıÃ»ÓĞ¹Ì¶¨Ğ´·¨£¬·Ç³£Áé»î
 */
 
 class MyPrint
 {
 public:
-	void operator()(string text)//operator()(å‚æ•°)
+	void operator()(string text)//operator()(²ÎÊı) //ÎŞ×´Ì¬ÀàĞÍ
 	{
 		cout << text << endl;
 	}
 };
 void test01()
 {
-	//é‡è½½çš„ï¼ˆï¼‰æ“ä½œç¬¦ ä¹Ÿç§°ä¸ºä»¿å‡½æ•°
+	//ÖØÔØµÄ£¨£©²Ù×÷·û Ò²³ÆÎª·Âº¯Êı
 	MyPrint myFunc;
 	myFunc("hello world");
 }
@@ -354,14 +402,121 @@ void test02()
 	MyAdd add;
 	int ret = add(10, 10);
 	cout << "ret = " << ret << endl;
-    MyAdd();//åŒ¿åå¯¹è±¡
-	//åŒ¿åå¯¹è±¡è°ƒç”¨  ä»¿å‡½æ•°
+    MyAdd();//ÄäÃû¶ÔÏó
+	//ÄäÃû¶ÔÏóµ÷ÓÃ  ·Âº¯Êı
 	cout << "MyAdd()(100,100) = " << MyAdd()(100, 100) << endl;
 }
-
 int main() {
 	test01();
 	test02();
 	system("pause");
 	return 0;
+}
+
+class GreaterThan {
+    int baseline;
+public:
+    GreaterThan(int x):baseline(x) { }
+    bool operator () (const int& x) {//ÓĞ×´Ì¬µÄº¯Êı¶ÔÏó ÒÀÀµ¶ÔÏó±¾ÉíÄÚ²¿µÄ×´Ì¬baseline
+        return x>baseline;
+    }
+};
+
+int main()  {
+    GreaterThan g1(10), g2(20);
+    cout << g1(15) << endl;
+    cout << g2(15) << endl;
+	system("pause");
+    return 0;
+}
+/*
+º¯Êı¶ÔÏóvsÆÕÍ¨º¯Êı
+º¯ÊıÎ½´ÊÊÇ²¼¶ûº¯Êı£¬¶Ô´«½øÀ´µÄ²ÎÊı½øĞĞÅĞ¶Ï£¬²¢·µ»Ø²¼¶ûÖµ
+*/
+class GreaterThan {
+    int baseline;
+public:
+    GreaterThan(int x):baseline(x) {}
+    bool operator () (const int& x) {
+        return x>baseline;
+    }
+};
+
+bool GreaterThan10(const int& x)   {
+    return x>10;
+}
+bool GreaterThan20(const int& x)   {
+    return x>20;
+}
+
+int main()  {
+    vector<int> a={5,10,15,20,25};
+    // find_id return a iterator
+    cout<<*find_if(a.begin(),a.end(),GreaterThan(10))<<endl;
+    cout<<*find_if(a.begin(),a.end(),GreaterThan(20))<<endl;
+    
+    cout<<*find_if(a.begin(),a.end(),GreaterThan10)<<endl;
+    cout<<*find_if(a.begin(),a.end(),GreaterThan20)<<endl;
+    return 0;
+}
+
+/*
+7.ÏÂ±êÔËËã·ûÖØÔØ
+ÏÂ±êÔËËã·û±ØĞëÒÔ³ÉÔ±º¯ÊıµÄĞÎÊ½½øĞĞÖØÔØ
+ÉùÃ÷·½Ê½£º
+	1. R& operator[](S a);//[]²»½ö¿ÉÒÔ·ÃÎÊÔªËØ£¬»¹¿ÉÒÔĞŞ¸ÄÔªËØ
+	2. const R& operator[](S a) const;//[]Ö»ÄÜ·ÃÎÊ²»ÄÜĞŞ¸ÄÔªËØ£»Í¬Ê±¿ÉÒÔÊÊÓ¦Ö»ÓĞconst¶ÔÏóµÄÇé¿ö£¬const¶ÔÏóÖ»ÄÜµ÷ÓÃconst³ÉÔ±º¯Êı
+*/
+class IntArray  {
+    int *a; 
+    int n;
+public:
+    IntArray(int n=1):n(n)  {
+        a=new int[n];
+        for (int i=0;i<n;++i) a[i]=i; 
+    }
+    IntArray(const IntArray& other) {
+        n=other.n;
+        a=new int[n];
+        memcpy(a,other.a,sizeof(int)*n);            
+    }
+    ~IntArray() {
+        cout << "release p=" << a <<endl;
+        delete[] a;
+    }
+    
+    
+    int& operator[](int i) {//R& operator[](S a)
+        if (i>=0 && i < n) {
+            return a[i];
+        }
+        throw std::out_of_range("out of range");
+    } 
+    
+    const int& operator[](int i) const{//const R& operator[](S a) const;
+        if (i>=0 && i < n) {
+            return a[i];
+        }
+        throw std::out_of_range("out of range");
+    }   
+    
+    void print() const {
+        for (int i=0;i<n;++i) cout<<a[i]<<" ";
+        cout<<endl;
+    }
+};
+
+int main()  {
+    IntArray a(4);
+    for (int i=0;i<4;i++) a[i]=i+1;
+    a.print();
+    
+    const IntArray b=a;
+    cout << "b[0] = " << b[0] <<endl;//µ÷ÓÃ·Å»ØÖµconstÀàĞÍµÄ[]ÖØÔØ
+    
+    //b[5]=10; //error£¬bÊÇconstÀàĞÍ
+    a[2]=10;
+	a.print();
+	system("pause");//1 2 10 4
+    return 0;
 }
