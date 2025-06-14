@@ -2,47 +2,73 @@
 using namespace std;
 
 /*
-å¯¹è±¡æ¨¡åž‹å’ŒthisæŒ‡é’ˆ
+¶ÔÏóÄ£ÐÍºÍthisÖ¸Õë
 */
 
 /*
-1.æˆå‘˜å˜é‡å’Œæˆå‘˜å‡½æ•°åˆ†å¼€å­˜å‚¨
-åªæœ‰éžé™æ€æˆå‘˜å˜é‡æ‰å±žäºŽç±»çš„å¯¹è±¡ä¸Š
+¾²Ì¬Áª±à¼¼Êõ
+    Ö¸µÄÊÇÔÚ±àÒë½×¶Î£¬¾ÍÄÜÖ±½ÓÊ¹ÓÃ´úÂë¶Îº¯ÊýµØÖ·µ÷ÓÃ¶¯Ì¬¶ÔÏóµÄ·½·¨¡£
+    ¸Ã·½·¨Ö»ÐèÒªÏò·Ç¾²Ì¬³ÉÔ±º¯Êý´«ËÍthisÖ¸Õë£¬¼´¿ÉÓÃ¾²Ì¬º¯Êýµ÷ÓÃÊµÏÖ¶¯Ì¬µ÷ÓÃµÄÐ§¹û
+ÓÅÊÆ£º 
+    ¶ÔÏó²¼¾ÖÓëC½á¹¹ÄÚ´æ²¼¾ÖÒ»ÖÂ£¬Ê¹µÃÄÚ´æÖÐ¶ÔÏó±ãÓëÆäËûÓïÑÔ³ÌÐò¿â¼æÈÝ
+    ¸ßÐ§ÂÊ£¬¸ßÐÔÄÜ
+*/
+
+/*
+1.³ÉÔ±±äÁ¿ºÍ³ÉÔ±º¯Êý·Ö¿ª´æ´¢
+Ö»ÓÐ·Ç¾²Ì¬³ÉÔ±±äÁ¿²ÅÊôÓÚÀàµÄ¶ÔÏóÉÏ
 */
 class Person {
 public:
     Person() {
         mA = 0;
     }
-    int mA;//éžé™æ€æˆå‘˜å˜é‡å å¯¹è±¡ç©ºé—´
-    static int mB; //é™æ€æˆå‘˜å˜é‡ä¸å å¯¹è±¡ç©ºé—´
-    void func() {//å‡½æ•°ä¹Ÿä¸å å¯¹è±¡ç©ºé—´ï¼Œæ‰€æœ‰å‡½æ•°å…±äº«ä¸€ä¸ªå‡½æ•°å®žä¾‹
-        cout << "mA:" << this->mA << endl;
+    int mA;//·Ç¾²Ì¬³ÉÔ±±äÁ¿Õ¼¶ÔÏó¿Õ¼ä
+    static int mB; //¾²Ì¬³ÉÔ±±äÁ¿²»Õ¼¶ÔÏó¿Õ¼ä
+    void func() {//º¯ÊýÒ²²»Õ¼¶ÔÏó¿Õ¼ä£¬ËùÓÐº¯Êý¹²ÏíÒ»¸öº¯ÊýÊµÀý
+        cout << "mA:" << this->mA << endl;//·Çstatic³ÉÔ±
+        //cout <<this->mB<<endl;  //static³ÉÔ±²»½¨ÒéÊ¹ÓÃthis·ÃÎÊ Í¬Ê±ÓÑÔªÒ²Ã»ÓÐthis
+        cout<<mB<<endl;
+        cout<<Person::mB<<endl;
     }
-    static void sfunc() {//é™æ€æˆå‘˜å‡½æ•°ä¹Ÿä¸å å¯¹è±¡ç©ºé—´
+    static void sfunc() {//¾²Ì¬³ÉÔ±º¯ÊýÒ²²»Õ¼¶ÔÏó¿Õ¼ä
+        //cout << this->mA;//¾²Ì¬³ÉÔ±º¯ÊýÃ»ÓÐthisÖ¸Õë
+        //cout<<mA<<endl;//error
+        cout<<mB<<endl;//Ö»ÄÜ·ÃÎÊÀàµÄ¾²Ì¬Êý¾ÝºÍº¯Êý³ÉÔ±
     }
 };
-
+int Person::mB = 10;    //staticÐèÒªÔÚÀàÍâ³õÊ¼»¯ ²»´østatic±£Áô×Ö
+int main()
+{
+    Person p1;
+    p1.func();
+    cout<<p1.mA<<endl;
+    //cout<<Person::mA<<endl; //error mA·ÇstaticÊôÓÚ±äÁ¿
+    cout<<p1.mB<<endl; //¶ÔÏó.·ÃÎÊstatic³ÉÔ±±äÁ¿
+    cout<<Person::mB<<endl; //Àà::·ÃÎÊstatic³ÉÔ±±äÁ¿
+    system("pause");
+    return 0;
+}
 /*
-2.thisæŒ‡é’ˆ
-thisæŒ‡é’ˆæŒ‡å‘è¢«è°ƒç”¨çš„æˆå‘˜å‡½æ•°æ‰€å±žçš„å¯¹è±¡
-thisæŒ‡é’ˆæ˜¯éšå«æ¯ä¸€ä¸ªéžé™æ€æˆå‘˜å‡½æ•°å†…çš„ä¸€ç§æŒ‡é’ˆ
-thisæŒ‡é’ˆä¸éœ€è¦å®šä¹‰ï¼Œç›´æŽ¥ä½¿ç”¨å³å¯
-thisæŒ‡é’ˆçš„ç”¨é€”ï¼š
-    å½“å½¢å‚å’Œæˆå‘˜å˜é‡åŒåæ—¶ï¼Œå¯ç”¨thisæŒ‡é’ˆæ¥åŒºåˆ†
-    åœ¨ç±»çš„éžé™æ€æˆå‘˜å‡½æ•°ä¸­è¿”å›žå¯¹è±¡æœ¬èº«ï¼Œå¯ä½¿ç”¨return *this
+2.thisÖ¸Õë
+thisÖ¸ÕëÖ¸Ïò±»µ÷ÓÃµÄ³ÉÔ±º¯ÊýËùÊôµÄ¶ÔÏó
+thisÖ¸ÕëÊÇÒþº¬Ã¿Ò»¸ö·Ç¾²Ì¬³ÉÔ±º¯ÊýÄÚµÄÒ»ÖÖÖ¸Õë
+thisÖ¸Õë²»ÐèÒª¶¨Òå£¬Ö±½ÓÊ¹ÓÃ¼´¿É
+thisÖ¸ÕëµÄÓÃÍ¾£º
+    µ±ÐÎ²ÎºÍ³ÉÔ±±äÁ¿Í¬ÃûÊ±£¬¿ÉÓÃthisÖ¸ÕëÀ´Çø·Ö
+    ÔÚÀàµÄ·Ç¾²Ì¬³ÉÔ±º¯ÊýÖÐ·µ»Ø¶ÔÏó±¾Éí£¬¿ÉÊ¹ÓÃreturn *this
 */
 class Person
 {
 public:
 	Person(int age)
 	{
-		this->age = age;//1ã€å½“å½¢å‚å’Œæˆå‘˜å˜é‡åŒåæ—¶ï¼Œå¯ç”¨thisæŒ‡é’ˆæ¥åŒºåˆ†
+		this->age = age;//1¡¢µ±ÐÎ²ÎºÍ³ÉÔ±±äÁ¿Í¬ÃûÊ±£¬¿ÉÓÃthisÖ¸ÕëÀ´Çø·Ö
 	}
 	Person& PersonAddPerson(Person p)
 	{
 		this->age += p.age;
-		return *this;//è¿”å›žå¯¹è±¡æœ¬èº«
+		return *this;//·µ»Ø¶ÔÏó±¾Éí
 	}
 	int age;
 };
@@ -63,13 +89,13 @@ int main() {
 }
 
 /*
-3.ç±»çš„ç©ºæŒ‡é’ˆè®¿é—®æˆå‘˜å‡½æ•°
+3.ÀàµÄ¿ÕÖ¸Õë·ÃÎÊ³ÉÔ±º¯Êý
 */
 
 class Person {
 public:
     void ShowClassName() {
-        cout << "æˆ‘æ˜¯Personç±»!" << endl;
+        cout << "ÎÒÊÇPersonÀà!" << endl;
     }
     void ShowPerson() {
         if (this == NULL) {
@@ -84,8 +110,8 @@ public:
 void test01()
 {
     Person * p = NULL;
-    p->ShowClassName(); //ç©ºæŒ‡é’ˆï¼Œå¯ä»¥è°ƒç”¨æˆå‘˜å‡½æ•°
-    p->ShowPerson();  //ä½†æ˜¯å¦‚æžœæˆå‘˜å‡½æ•°ä¸­ç”¨åˆ°äº†thisæŒ‡é’ˆï¼Œå°±ä¸å¯ä»¥äº†
+    p->ShowClassName(); //¿ÕÖ¸Õë£¬¿ÉÒÔµ÷ÓÃ³ÉÔ±º¯Êý
+    p->ShowPerson();  //µ«ÊÇÈç¹û³ÉÔ±º¯ÊýÖÐÓÃµ½ÁËthisÖ¸Õë£¬¾Í²»¿ÉÒÔÁË
 }
 
 int main() {
@@ -95,14 +121,93 @@ int main() {
 }
 
 /*
-4.constä¿®é¥°æˆå‘˜å‡½æ•°
-å¸¸å‡½æ•°ï¼š
-    æˆå‘˜å‡½æ•°åŽåŠ conståŽæˆ‘ä»¬ç§°ä¸ºè¿™ä¸ªå‡½æ•°ä¸ºå¸¸å‡½æ•°
-    å¸¸å‡½æ•°å†…ä¸å¯ä»¥ä¿®æ”¹æˆå‘˜å±žæ€§
-    æˆå‘˜å±žæ€§å£°æ˜Žæ—¶åŠ å…³é”®å­—mutableåŽï¼Œåœ¨å¸¸å‡½æ•°ä¸­ä¾ç„¶å¯ä»¥ä¿®æ”¹
-å¸¸å¯¹è±¡ï¼š
-    å£°æ˜Žå¯¹è±¡å‰åŠ constç§°è¯¥å¯¹è±¡ä¸ºå¸¸å¯¹è±¡
-    å¸¸å¯¹è±¡åªèƒ½è°ƒç”¨å¸¸å‡½æ•°
+CÖÐµÄconstÖªÊ¶
+const³£Á¿
+    Ïàµ±ÓÚc++µÄconstexpr£¬¼´±àÒëÆÚ³£Êì
+constÓëÖ¸Õë
+    const int **p;//²»ÄÜÐÞ¸Ä**p
+    int* const *p;//²»ÄÜÐÞ¸Ä*p
+    int** const p;//²»ÄÜÐÞ¸Äp
+constÓëº¯Êý
+    int fun(const int i);//²»ÄÜÐÞ¸Äº¯Êý²ÎÊý
+    const int* fun();//·µ»ØconstÖ¸Õë£¬±ØÐëÇ¿ÖÆÀàÐÍ×ª»»¸³Öµ¸ø·ÇconstÖ¸Õë
+
+constÒýÓÃ
+    constÒýÓÃÓÒÖµ¶ÔÏó£¨ÎªÓÒÖµ¶ÔÏó¿ª±Ù¿Õ¼ä£¬²¢¸³Óè±ðÃû£©
+        const int& size=15;
+        const int& size=i+7;
+    constÒýÓÃ×óÖµ¶ÔÏó£¨Ö±½Ó¸³Óè±ðÃû£©
+        const int& size=i;
+    constÒýÓÃÒþÊ½×ªÐÍ×óÖµ¶ÔÏó£¨¿ª±ÙÁÙÊ±¿Õ¼ä£¬²¢¸³Óè±ðÃû£©
+        const int& size=pi;
+    constÒýÓÃ×÷Îªº¯Êý²ÎÊýºÍ·µ»ØÖµ
+        ×÷Îªº¯ÊýÐÎÊ½²ÎÊý£¬Êµ²Î°üº¬ÊÇÓÒÖµ¡¢ÊÇ×óÖµ¡¢±»ÒþÊ½×ª»»ÈýÖÖÇé¿ö
+        ×÷Îª·µ»ØÖµ£¬ÊÇ·µ»ØÁÙÊ±¶ÔÏóµÄ±ðÃû
+*/
+
+int main()
+{
+    // constÒýÓÃÓÒÖµ 
+    const int &c = 15;
+    //±àÒëÆ÷»á¸ø³£Á¿15Ò»¸öÁÙÊ±¿Õ¼ä£¬²¢¸³Óè±ðÃû
+    //µÈ¼Û: int temp=rValue; const int &c=temp; 
+    int* p = (int *)&c;  //p Ö¸ÏòÁÙÊ±¿Õ¼ä
+    *p = 10;//ÁÙÊ±¿Õ¼äÖ¸Ïò10£¨²Ù×÷¿ÉÄÜÎ¥·¨£©
+    cout << c << endl;//00
+
+
+    int b = 10;
+    const int &a = b;
+    //a = 12;  //a²»ÄÜ±»¸³Öµ Ö»¶Á
+    b = 11;//±ðÃûaÒ²¸ú×ÅÒ»Æð¸Ä
+    printf("a=%d,b=%d\n", a, b);//11 11£ºaºÍbµÈ¼Û Êä³öÏàÍ¬
+
+    double e = 3.14;
+    const int &d = e; //ÀàÐÍ²»Ò»ÑùµÈ¼ÛÓÚ£º int temp = e; const int &d = temp
+    //constÒýÓÃ°ó¶¨ÓÒÖµ»òÀàÐÍ²»Ò»ÖÂÊ±£¬±àÒëÆ÷»áÉú³ÉÁÙÊ±±äÁ¿
+    e = 11;
+    printf("d=%d,e=%lf\n", d, e);//3 11.0000
+    system("pause");
+    return 0;
+}
+/*
+constÏÞ¶¨±êÊ¶·ûÊÇ³£Á¿£¬²»ÄÜÈ¡µØÖ·
+¿ÉÒÔÏÔÊ¾×ªÐÍ»ñÈ¡ÓÒÖµÖ¸Õë
+²»ÄÜ³õÊ¼»¯Îª×óÖµÒýÓÃ
+¿ÉÒÔÒþÊ½×ªÐÍÓÒÖµÎª³£ÒýÓÃ
+Èç¸Ã³£Á¿µÄÓÒÖµÐèÒª¸ü¸Ä£¬Ôò±ØÒªÓÒÖµÒýÓÃ£¨¿Î³Ì²»ÒªÇóÓÒÖµÒýÓÃµÄÄÚÈÝ£©
+*/
+int main()
+{
+    const double pi = 3.14;  //±àÒëÃ»ÓÐ·ÖÅä¿Õ¼ä£¬piÊÇÓÒÖµ 
+    //double *r_pi = &pi;    //constÏÞ¶¨±êÊ¶·ûÊÇ³£Á¿£¬²»ÄÜÈ¡µØÖ·
+    double *p_pi = (double *)&pi;//¿ÉÒÔÏÔÊ¾×ªÐÍ»ñÈ¡ÓÒÖµÖ¸Õë µÈ¼Û£º
+    //double temp = pi; double *p_pi = &temp;
+    *p_pi = 4.0;
+    printf("%lf,%lf\n",*p_pi,pi); //4 3.14
+    
+    //double &r_pi = pi; //Óï·¨´íÎó£¬ÆÕÍ¨µÄ×óÖµÒýÓÃ£¨double &£©²»ÄÜ°ó¶¨µ½³£Á¿»òÖ»¶Á¶ÔÏó¡£Ö»ÓÐ const double &£¨³£Á¿ÒýÓÃ£©²ÅÄÜ°ó¶¨µ½³£Á¿¡£
+    const double &r_pi = pi; //ÒýÓÃÁËpiµÄtemp
+    //r_pi = 4.0; //µ«ÎÞ·¨ÐÞ¸Ä£¨Ö¸ÏòÍ¬Ò»¿éÄÚ´æ£©
+    printf("%lf,%lf\n",*p_pi,r_pi); // 4 4
+
+    double &&rr_pi = (double)pi; //(double)piÊÇÓÒÖµ¡£ÕâÀïÒýÓÃÁËpiµÄtemp¡£¿ÉÐÞ¸Ä£¬¼´rr_piÖ¸ÏòÁÙÊ±µÄ3.14
+    //double &&t_pi = *p_pi;  //²»ÄÜ°ó¶¨×óÖµµ½ÓÒÖµÒýÓÃ
+    rr_pi = 5.0;
+    printf("%lf,%lf\n",rr_pi,pi); // 5 3.14
+    system("pause");
+    return 0;
+}
+
+/*
+4.constÐÞÊÎ³ÉÔ±º¯Êý
+³£º¯Êý£º
+    ³ÉÔ±º¯Êýºó¼ÓconstºóÎÒÃÇ³ÆÎªÕâ¸öº¯ÊýÎª³£º¯Êý
+    ³£º¯ÊýÄÚ²»¿ÉÒÔÐÞ¸Ä³ÉÔ±ÊôÐÔ
+    ³ÉÔ±ÊôÐÔÉùÃ÷Ê±¼Ó¹Ø¼ü×Ömutableºó£¬ÔÚ³£º¯ÊýÖÐÒÀÈ»¿ÉÒÔÐÞ¸Ä
+³£¶ÔÏó£º
+    ÉùÃ÷¶ÔÏóÇ°¼Óconst³Æ¸Ã¶ÔÏóÎª³£¶ÔÏó
+    ³£¶ÔÏóÖ»ÄÜµ÷ÓÃ³£º¯Êý
 */
 class Person {
 public:
@@ -110,14 +215,14 @@ public:
         m_A = 0;
         m_B = 0;
     }
-    //thisæŒ‡é’ˆçš„æœ¬è´¨æ˜¯ä¸€ä¸ªæŒ‡é’ˆå¸¸é‡ï¼ŒæŒ‡é’ˆçš„æŒ‡å‘ä¸å¯ä¿®æ”¹
-    //å¦‚æžœæƒ³è®©æŒ‡é’ˆæŒ‡å‘çš„å€¼ä¹Ÿä¸å¯ä»¥ä¿®æ”¹ï¼Œéœ€è¦å£°æ˜Žå¸¸å‡½æ•°
+    //thisÖ¸ÕëµÄ±¾ÖÊÊÇÒ»¸öÖ¸Õë³£Á¿£¬Ö¸ÕëµÄÖ¸Ïò²»¿ÉÐÞ¸Ä
+    //Èç¹ûÏëÈÃÖ¸ÕëÖ¸ÏòµÄÖµÒ²²»¿ÉÒÔÐÞ¸Ä£¬ÐèÒªÉùÃ÷³£º¯Êý
     void ShowPerson() const {
         //const Type* const pointer;
-        //this = NULL; //ä¸èƒ½ä¿®æ”¹æŒ‡é’ˆçš„æŒ‡å‘ Person* const this;
+        //this = NULL; //²»ÄÜÐÞ¸ÄÖ¸ÕëµÄÖ¸Ïò Person* const this;
 
-        //this->m_A = 100; //å¸¸å‡½æ•°ä¸­thisæŒ‡å‘çš„å€¼ä¸å¯ä»¥ä¿®æ”¹çš„
-        this->m_B = 100; //mutableä¿®é¥°çš„å˜é‡å¯ä»¥ä¿®æ”¹
+        //this->m_A = 100; //³£º¯ÊýÖÐthisÖ¸ÏòµÄÖµ²»¿ÉÒÔÐÞ¸ÄµÄ¡£read only
+        this->m_B = 100; //mutableÐÞÊÎµÄ±äÁ¿¿ÉÒÔÐÞ¸Ä
         cout<<m_B<<endl;
     }
     void MyFunc() const {
@@ -125,16 +230,16 @@ public:
     }
 public:
     int m_A;
-    mutable int m_B; //å¯ä¿®æ”¹ å¯å˜çš„
+    mutable int m_B; //¿ÉÐÞ¸Ä ¿É±äµÄ
 };
 
 void test01() {
-    const Person person; //åœ¨å£°æ˜Žå‰åŠ constä¿®é¥°å¯¹è±¡  å¸¸å¯¹è±¡
-    cout << person.m_A << endl;//å¸¸å¯¹è±¡å¯ä»¥è®¿é—®æˆå‘˜å˜é‡çš„å€¼
-    //person.mA = 100; //å¸¸å¯¹è±¡ä¸èƒ½ä¿®æ”¹æˆå‘˜å˜é‡çš„å€¼
-    person.m_B = 100; //ä½†æ˜¯å¸¸å¯¹è±¡å¯ä»¥ä¿®æ”¹mutableä¿®é¥°æˆå‘˜å˜é‡
+    const Person person; //ÔÚÉùÃ÷Ç°¼ÓconstÐÞÊÎ¶ÔÏó  ³£¶ÔÏó
+    cout << person.m_A << endl;//³£¶ÔÏó¿ÉÒÔ·ÃÎÊ³ÉÔ±±äÁ¿µÄÖµ
+    //person.mA = 100; //³£¶ÔÏó²»ÄÜÐÞ¸Ä³ÉÔ±±äÁ¿µÄÖµ
+    person.m_B = 100; //µ«ÊÇ³£¶ÔÏó¿ÉÒÔÐÞ¸ÄmutableÐÞÊÎ³ÉÔ±±äÁ¿
     
-    person.MyFunc(); //å¸¸å¯¹è±¡åªèƒ½è°ƒç”¨constå¸¸å‡½æ•°
+    person.MyFunc(); //³£¶ÔÏóÖ»ÄÜµ÷ÓÃconst³£º¯Êý
     person.ShowPerson();
 }
 
