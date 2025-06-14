@@ -2,50 +2,61 @@
 using namespace std;
 
 /*
-ç±»å’Œå¯¹è±¡
-C++é¢å‘å¯¹è±¡çš„ä¸‰å¤§ç‰¹æ€§ä¸ºï¼šå°è£…ã€ç»§æ‰¿ã€å¤šæ€
-C++ä¸‡ç‰©çš†ä¸ºå¯¹è±¡ï¼Œå¯¹è±¡ä¸Šæœ‰å…¶å±žæ€§å’Œè¡Œä¸º
+ÀàºÍ¶ÔÏó
+C++ÃæÏò¶ÔÏóµÄÈý´óÌØÐÔÎª£º·â×°¡¢¼Ì³Ð¡¢¶àÌ¬
+C++ÍòÎï½ÔÎª¶ÔÏó£¬¶ÔÏóÉÏÓÐÆäÊôÐÔºÍÐÐÎª
+
+ÀàÊÇÓÃ»§¶¨ÒåµÄÊý¾ÝÀàÐÍ£¬±íÊ¾Ò»¸ö³éÏóÊý¾ÝÀàÐÍ
+¶ÔÏóÊÇÀà¶¨ÒåµÄ±äÁ¿»òÊµÀý
 */
 
 /*
-1.å°è£…æ„ä¹‰
-å°†å±žæ€§å’Œè¡Œä¸ºä½œä¸ºä¸€ä¸ªæ•´ä½“ï¼Œè¡¨çŽ°ç”Ÿæ´»ä¸­çš„äº‹ç‰©
-å°†å±žæ€§å’Œè¡Œä¸ºåŠ ä»¥æƒé™æŽ§åˆ¶
+1.·â×°ÒâÒå
+½«ÊôÐÔºÍÐÐÎª×÷ÎªÒ»¸öÕûÌå£¬±íÏÖÉú»îÖÐµÄÊÂÎï
+½«ÊôÐÔºÍÐÐÎª¼ÓÒÔÈ¨ÏÞ¿ØÖÆ
 */
 #define PI 3.14
-class Circle//ç±» ç±»å
+class Circle//Àà ÀàÃû
 {
-    public://è®¿é—®æƒé™
-    int r;//å±žæ€§
+    public://·ÃÎÊÈ¨ÏÞ
+    int r;//ÊôÐÔ
     int S;
-    double CalArea()//è¡Œä¸º
+    double CalArea()//ÐÐÎª
     {
         S=PI*r*r;
         return S;
     }
-};//æ³¨æ„è¦åŠ åˆ†å·
+    double CalLength();
+};//×¢ÒâÒª¼Ó·ÖºÅ
+double Circle::CalLength()//ÀàÍâÊµÏÖ ²»ÔÚÀàµÄ×÷ÓÃÓòÄÚ ÐèÒª::
+{
+    return 2*PI*r;
+}
 int main()
 {
-    Circle c1;//é€šè¿‡Circleç±»åˆ›å»ºå¯¹è±¡c1
-    c1.r=3;//ç»™å±žæ€§èµ‹å€¼
-    cout<<c1.CalArea()<<endl;//è°ƒç”¨è¡Œä¸º
+    Circle c1;//Í¨¹ýCircleÀà´´½¨¶ÔÏóc1
+    c1.r=3;//¸øÊôÐÔ¸³Öµ
+    cout<<c1.CalArea()<<endl;//µ÷ÓÃÐÐÎª
+    cout<<c1.CalLength()<<endl;
     system("pause");
     return 0;
 }
 
 /*
-2.ç±»çš„å±žæ€§å’Œè¡Œä¸ºçš„è®¿é—®æƒé™
-è®¿é—®æƒé™æœ‰ä¸‰ç§
-a.å…¬å…±æƒé™  public     ç±»å†…å¯ä»¥è®¿é—®  ç±»å¤–å¯ä»¥è®¿é—®
-b.ä¿æŠ¤æƒé™  protected  ç±»å†…å¯ä»¥è®¿é—®  ç±»å¤–ä¸å¯ä»¥è®¿é—®
-c.ç§æœ‰æƒé™  private    ç±»å†…å¯ä»¥è®¿é—®  ç±»å¤–ä¸å¯ä»¥è®¿é—®
+2.ÀàµÄÊôÐÔºÍÐÐÎªµÄ·ÃÎÊÈ¨ÏÞ
+·ÃÎÊÈ¨ÏÞÓÐÈýÖÖ
+a.¹«¹²È¨ÏÞ  public     ÀàÄÚ¿ÉÒÔ·ÃÎÊ  ÀàÍâ¿ÉÒÔ·ÃÎÊ
+b.±£»¤È¨ÏÞ  protected  ÀàÄÚ¿ÉÒÔ·ÃÎÊ  ÀàÍâ²»¿ÉÒÔ·ÃÎÊ
+c.Ë½ÓÐÈ¨ÏÞ  private    ÀàÄÚ¿ÉÒÔ·ÃÎÊ  ÀàÍâ²»¿ÉÒÔ·ÃÎÊ
 
-å°†æ‰€æœ‰æˆå‘˜å±žæ€§è®¾ç½®ä¸ºç§æœ‰ï¼Œå¯ä»¥è‡ªå·±æŽ§åˆ¶è¯»å†™æƒé™
-å¯¹äºŽå†™æƒé™ï¼Œæˆ‘ä»¬å¯ä»¥æ£€æµ‹æ•°æ®çš„æœ‰æ•ˆæ€§
+½«ËùÓÐ³ÉÔ±ÊôÐÔÉèÖÃÎªË½ÓÐ£¬¿ÉÒÔ×Ô¼º¿ØÖÆ¶ÁÐ´È¨ÏÞ
+¶ÔÓÚÐ´È¨ÏÞ£¬ÎÒÃÇ¿ÉÒÔ¼ì²âÊý¾ÝµÄÓÐÐ§ÐÔ
+¹«ÓÐ³ÉÔ±¿ÉÒÔÔÚ¿Í»§¶ËËæÒâ·ÃÎÊ£¨ÎÞÐèÍ¨¹ý³ÉÔ±º¯Êý£©£¬¿ÉÄÜÆÆ»µ·â×°µÄÂß¼­Ò»ÖÂÐÔ£¨ÈçÐÞ¸Ä³¤¶ÈÎª¸ºÊýµÈ£©
 */
 
 /*
-3.structå’Œclassçš„å”¯ä¸€åŒºåˆ«åœ¨äºŽé»˜è®¤çš„è®¿é—®æƒé™ä¸åŒ
-structé»˜è®¤å…¬å…±
-classé»˜è®¤ç§æœ‰
+3.structºÍclassµÄÎ¨Ò»Çø±ðÔÚÓÚÄ¬ÈÏµÄ·ÃÎÊÈ¨ÏÞ²»Í¬
+    struct Ä¬ÈÏ¹«¹²
+    class  Ä¬ÈÏË½ÓÐ
+³ý´ËÖ®Íâ classºÍstructµÄÓï·¨ºÍÓïÒåÃ»ÓÐÇø±ð
 */
