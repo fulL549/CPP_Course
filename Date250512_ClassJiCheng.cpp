@@ -2,27 +2,36 @@
 using namespace std;
 
 /*
-4.6 ç»§æ‰¿
+4.6 ¼Ì³Ğ
+
+¶ÔÏóÖ®¼äµÄ¹ØÏµ£ºÓÑÔª¹ØÏµ¡¢×éºÏ¹ØÏµ¡¢¼Ì³Ğ¹ØÏµ
+¼Ì³ĞÓëÅÉÉúÊÇÃæÏò¶ÔÏóµÄ»ù´¡£¬Í¨¹ı·â×°·ÖÀëÁË¿ª·¢ÕßºÍÊ¹ÓÃÕß£¬Í¨¹ı¼Ì³ĞºÍÅÉÉúÌá¹©ÁË¹¹ÔìÊÂÎïµÄ·½·¨£¬¶àÌ¬£¬Ìá¸ß±à³ÌµÄ¿ÉÖØÓÃĞÔ
 */
 
 /*
-4.6.1 ç»§æ‰¿çš„è¯­æ³•
+4.6.1 ¼Ì³ĞµÄÓï·¨
 
 class A : public B;
-    A ç±»ç§°ä¸ºå­ç±» æˆ– æ´¾ç”Ÿç±»
-    B ç±»ç§°ä¸ºçˆ¶ç±» æˆ– åŸºç±»
+    A Àà³ÆÎª×ÓÀà »ò ÅÉÉúÀà
+    B Àà³ÆÎª¸¸Àà »ò »ùÀà
 
-æ´¾ç”Ÿç±»ä¸­çš„æˆå‘˜ï¼ŒåŒ…å«ä¸¤å¤§éƒ¨åˆ†ï¼š
-    ä¸€ç±»æ˜¯ä»åŸºç±»ç»§æ‰¿è¿‡æ¥çš„ï¼Œä¸€ç±»æ˜¯è‡ªå·±å¢åŠ çš„æˆå‘˜ã€‚
-    ä»åŸºç±»ç»§æ‰¿è¿‡è¿‡æ¥çš„è¡¨ç°å…¶å…±æ€§ï¼Œè€Œæ–°å¢çš„æˆå‘˜ä½“ç°äº†å…¶ä¸ªæ€§ã€‚
+ÅÉÉúÀàÖĞµÄ³ÉÔ±£¬°üº¬Á½´ó²¿·Ö£º
+    Ò»ÀàÊÇ´Ó»ùÀà¼Ì³Ğ¹ıÀ´µÄ£¬Ò»ÀàÊÇ×Ô¼ºÔö¼ÓµÄ³ÉÔ±¡£
+    ´Ó»ùÀà¼Ì³Ğ¹ı¹ıÀ´µÄ±íÏÖÆä¹²ĞÔ£¬¶øĞÂÔöµÄ³ÉÔ±ÌåÏÖÁËÆä¸öĞÔ¡£
 */
 
 /*
-4.6.2 ç»§æ‰¿æ–¹å¼
-å­ç±»ä¸èƒ½è®¿é—®çˆ¶ç±»çš„ç§æœ‰proovateæˆå‘˜
-    1. public ç»§æ‰¿ï¼šåŸºç±»çš„publicå’Œprotectedæˆå‘˜åœ¨æ´¾ç”Ÿç±»ä¸­ä»ç„¶æ˜¯publicå’Œprotected
-    2. protected ç»§æ‰¿ï¼šåŸºç±»çš„publicå’Œprotectedæˆå‘˜åœ¨æ´¾ç”Ÿç±»ä¸­å˜ä¸ºprotected
-    3. private ç»§æ‰¿ï¼šåŸºç±»çš„publicå’Œprotectedæˆå‘˜åœ¨æ´¾ç”Ÿç±»ä¸­å˜ä¸ºprivate
+4.6.2 ·ÃÎÊ¿ØÖÆÓë¼Ì³Ğ
+»ùÀàµÄ³ÉÔ±·ÃÎÊ¿ØÖÆÓë¼Ì³Ğ£º
+	1.public£»¿ÉÒÔ±»¼Ì³ĞºÍ·ÃÎÊ
+	2.protected£ºÀàµÄÍâ²¿²»¿ÉÒÔ·ÃÎÊ£¬¿ÉÒÔ±»¼Ì³Ğ£¬ÅÉÉúÀà¿ÉÒÔ·ÃÎÊ
+	3.private£º²»¿É±»¼Ì³Ğ£¬×ÓÀà²»ÄÜ·ÃÎÊ¸¸ÀàµÄË½ÓĞprivate³ÉÔ±£¬Ö»ÄÜÍ¨¹ı¸¸ÀàµÄº¯Êı·ÃÎÊ
+¼Ì³Ğ·½Ê½£º
+	»ùÀàµÄprivateÎŞ·¨±»¼Ì³Ğ£¬¿¼ÂÇpublicºÍprotectedµÄ¼Ì³Ğ½á¹û
+    1. public ¼Ì³Ğ£º»ùÀàµÄpublicºÍprotected³ÉÔ±ÔÚÅÉÉúÀàÖĞÈÔÈ»ÊÇpublicºÍprotected
+    2. protected ¼Ì³Ğ£º»ùÀàµÄpublicºÍprotected³ÉÔ±ÔÚÅÉÉúÀàÖĞ±äÎªprotected
+    3. private ¼Ì³Ğ£º»ùÀàµÄpublicºÍprotected³ÉÔ±ÔÚÅÉÉúÀàÖĞ±äÎªprivate
+
 */
 class Base1
 {
@@ -34,25 +43,25 @@ private:
 	int m_C;
 };
 
-//å…¬å…±ç»§æ‰¿
-class Son1 :public Base1
+//¹«¹²¼Ì³Ğ
+class Son1 :public Base1//Óï·¨
 {
 public:
 	void func()
 	{
-		m_A; //å¯è®¿é—® publicæƒé™
-		m_B; //å¯è®¿é—® protectedæƒé™
-		//m_C; //ä¸å¯è®¿é—®
+		m_A; //¿É·ÃÎÊ publicÈ¨ÏŞ
+		m_B; //¿É·ÃÎÊ protectedÈ¨ÏŞ
+		//m_C; //²»¿É·ÃÎÊ
 	}
 };
 
 void myClass()
 {
 	Son1 s1;
-	s1.m_A; //å…¶ä»–ç±»åªèƒ½è®¿é—®åˆ°å…¬å…±æƒé™
+	s1.m_A; //ÆäËûÀàÖ»ÄÜ·ÃÎÊµ½¹«¹²È¨ÏŞ
 }
 
-//ä¿æŠ¤ç»§æ‰¿
+//±£»¤¼Ì³Ğ
 class Base2
 {
 public:
@@ -67,18 +76,18 @@ class Son2:protected Base2
 public:
 	void func()
 	{
-		m_A; //å¯è®¿é—® protectedæƒé™
-		m_B; //å¯è®¿é—® protectedæƒé™
-		//m_C; //ä¸å¯è®¿é—®
+		m_A; //¿É·ÃÎÊ protectedÈ¨ÏŞ
+		m_B; //¿É·ÃÎÊ protectedÈ¨ÏŞ
+		//m_C; //²»¿É·ÃÎÊ
 	}
 };
 void myClass2()
 {
 	Son2 s;
-	//s.m_A; //ä¸å¯è®¿é—®
+	//s.m_A; //²»¿É·ÃÎÊ
 }
 
-//ç§æœ‰ç»§æ‰¿
+//Ë½ÓĞ¼Ì³Ğ
 class Base3
 {
 public:
@@ -93,9 +102,9 @@ class Son3:private Base3
 public:
 	void func()
 	{
-		m_A; //å¯è®¿é—® privateæƒé™
-		m_B; //å¯è®¿é—® privateæƒé™
-		//m_C; //ä¸å¯è®¿é—®
+		m_A; //¿É·ÃÎÊ privateÈ¨ÏŞ
+		m_B; //¿É·ÃÎÊ privateÈ¨ÏŞ
+		//m_C; //²»¿É·ÃÎÊ
 	}
 };
 class GrandSon3 :public Son3
@@ -103,7 +112,7 @@ class GrandSon3 :public Son3
 public:
 	void func()
 	{
-		//Son3æ˜¯ç§æœ‰ç»§æ‰¿ï¼Œæ‰€ä»¥ç»§æ‰¿Son3çš„å±æ€§åœ¨GrandSon3ä¸­éƒ½æ— æ³•è®¿é—®åˆ°
+		//Son3ÊÇË½ÓĞ¼Ì³Ğ£¬ËùÒÔ¼Ì³ĞSon3µÄÊôĞÔÔÚGrandSon3ÖĞ¶¼ÎŞ·¨·ÃÎÊµ½
 		//m_A;
 		//m_B;
 		//m_C;
@@ -111,20 +120,218 @@ public:
 };
 
 /*
-4.6.3 ç»§æ‰¿ä¸­çš„å¯¹è±¡æ¨¡å‹
-ä»çˆ¶ç±»ç»§æ‰¿è¿‡æ¥çš„æˆå‘˜ï¼Œç§æœ‰æˆå‘˜ä¼šè¢«éšè—æ— æ³•è®¿é—®ï¼ˆåœ¨å†…å­˜ä¸­è¿˜æ˜¯ç»§æ‰¿ä¸‹å»äº†ï¼‰
+·ÃÎÊ¿ØÖÆÈ¨ÏŞµÄĞŞ¸Ä
+¿ÉÒÔÊ¹ÓÃ¡°·ÃÎÊÉùÃ÷¡±»Ö¸´Ô­À´µÄ·ÃÎÊ¿ØÖÆ·½Ê½
+Óï·¨£ºusing »ùÀàÃû::³ÉÔ±Ãû; //´úÂë·ÅÔÚ³ÉÔ±·ÃÎÊ¿ØÖÆºó
+»¹¿ÉÍ¨¹ıÕâÖÖÊ¹ÅÉÉúÀà¶ÔÏóÖ±½ÓÊ¹ÓÃ»ùÀàµÄ¹¹Ôìº¯Êı
+*/
+class BASE {
+public:
+    void set_i(int x)
+    {
+        i = x;
+    }
+    int get_i()
+    {
+        return i;
+    }
+protected:
+    int i;
+};
+class DERIVED : private BASE {//private¼Ì³Ğ£ºpublic->private£¬protected->private
+public:
+    using BASE::set_i;   // ·ÃÎÊÉùÃ÷ public->private->(»Ö¸´)public
+    using BASE::i;  // ·ÃÎÊÉùÃ÷ protected->private->(»Ö¸´)protected
+    void set_j(int x)
+    {
+        j = x;
+    }
+    int get_ij()
+    {
+        return i + j;
+    }
+protected:
+    int j;
+};
+
+/*
+ÅÉÉúÀà¶ÔÏóµÄ³õÊ¼»¯Óë¹¹Ôì
+	»ùÀàµÄ¹¹Ôìº¯Êı²»±»¼Ì³Ğ£¬ÅÉÉúÀàĞèÒªÉùÃ÷×Ô¼ºµÄ¹¹Ôìº¯Êı
+	ÔÚÅÉÉúÀàµÄ¹¹Ôìº¯ÊıÖĞ£ºÏÈ½øĞĞ»ùÀà²¿·ÖµÄ³õÊ¼»¯£¬ÔÙĞÂÔö×Ô¼º³ÉÔ±µÄ³õÊ¼»¯
+		»ùÀà²¿·ÖµÄ³õÊ¼»¯£º
+			Ä¬ÈÏÊ¹ÓÃÎŞ²Î¹¹Ôì»ò¿½±´¹¹Ôì£¬Èç¹û»ùÀàÃ»ÓĞÄ¬ÈÏ¹¹ÔìÔò±¨´í
+			Ê¹ÓÃÓĞ²Î¹¹Ôìº¯ÊıÊ±(¼´»ùÀàµÄ¹¹Ôìº¯Êı´ø²ÎÊı)£¬±ØĞëÏÔÊ¾ÔÚ³õÊ¼»¯Æ÷ÁĞ±íÖĞÊ¹ÓÃ£¬²»ÄÜÔÚ¹¹Ôìº¯ÊıÌåÄÚÊµÏÖ
+*/
+/*
+ÅÉÉúÓë³ÉÔ±º¯Êı
+	1.ÖØÔØ£º
+		¾ßÓĞÏàÍ¬µÄ×÷ÓÃÓò
+		º¯ÊıÃû×ÖÏàÍ¬
+		²ÎÊıÀàĞÍ£¬Ë³Ğò£¬ÊıÄ¿²»Í¬
+	2.¸²¸Ç£¨ĞŞ¸Ä»ùÀàº¯Êı¶¨Òå£©
+	3.Òş²Ø£¨ÆÁ±Î»ùÀàµÄº¯Êı¶¨Òå£©£º
+		ÅÉÉúÀàµÄº¯ÊıÓë»ùÀàµÄº¯ÊıÍ¬Ãû£¬µ«²ÎÊıÁĞ±íÓĞ²îÒì
+		ÅÉÉúÀàµÄº¯ÊıÓë»ùÀàµÄº¯ÊıÍ¬Ãû£¬²ÎÊıÁĞ±íÒ²ÏàÍ¬£¬µ«ÊÇ»ùÀàº¯ÊıÃ»ÓĞvirtual¹Ø¼ü×Ö
+		Ó¦ÓÃ£º
+			ĞŞ¸ÄÅÉÉúÀà³ÉÔ±º¯ÊıµÄ¾É¹¦ÄÜ
+			Ôö¼ÓÅÉÉúÀà³ÉÔ±º¯ÊıµÄĞÂ¹¦ÄÜ
+	4.¼Ì³Ğ£º
+		Ã»ÓĞ±»¸²¸Ç»òÆÁ±ÎµÄ»ùÀàº¯Êı£¬°üÀ¨»ùÀàÖĞÖØÔØµÄº¯Êı
+*/
+class Time
+{
+public:
+    void Set(int hours, int minutes, int seconds);//½«±»ĞŞ¸Ä
+    void Increment();//½«±»¼Ì³Ğ
+    void Write() const;
+    Time(int initHrs, int initMins, int initSecs);  // constructor ÓĞ²Î¹¹Ôì£¡²»±»¼Ì³Ğ
+    Time(); 	   //  default constructor ²»±»¼Ì³Ğ
+
+private:
+    int hrs;
+    int mins;
+    int secs;
+};
+
+enum  ZoneType { EST, CST, MST, PST, EDT, CDT, MDT, PDT };//Ã¶¾ÙÀàĞÍ
+
+class ExtTime: public Time	// Time is the base class
+{
+public:
+    ExtTime(int initHrs, int initMins, int initSecs, ZoneType initZone);      // constructor ÅÉÉúÀà¹¹Ôìº¯Êı
+    ExtTime(); 			             // default constructor ÅÉÉúÀàÎö¹¹º¯Êı
+    void Set(int hours, int minutes, int seconds, ZoneType timeZone);//¸Ä±ä²ÎÊıÁĞ±íºÍº¯ÊıÌå; Òş²ØÁË»ùÀàµÄSet
+    void Write() const;//¶¨ÒåÃ»±ä º¯ÊıÌåÖØĞ´; »ùÀàÃ»ÓĞvirtual¹Ø¼ü×Ö Òş²ØÁË»ùÀàµÄWrite
+
+private:
+    ZoneType  zone; 	//  added data member
+};
+
+Time::Time(int initHrs, int initMins, int initSecs)
+{
+    hrs = initHrs;
+    mins = initMins;
+    secs = initSecs;
+}
+
+Time::Time()
+{
+    hrs = 0;
+    mins = 0;
+    secs = 0;
+}
+
+void Time::Set(int hours, int minutes, int seconds)
+{
+    hrs = hours;
+    mins = minutes;
+    secs = seconds;
+}
+
+void Time::Increment()    //  IMPLEMENTATION FILE ( time.cpp )
+{
+    secs++;
+    if (secs > 59)
+    {
+        secs = 0;
+        mins++;
+        if (mins > 59)
+        {
+            mins = 0;
+            hrs++;
+            if (hrs > 23)
+                hrs = 0;
+        }
+    }
+}
+
+void Time::Write() const
+{
+    if (hrs < 10)
+        cout << '0';
+    cout << hrs << ':';
+    if (mins < 10)
+        cout << '0';
+    cout << mins << ':';
+    if (secs < 10)
+        cout << '0';
+    cout << secs;
+}
+
+//×ÓÀàµÄÓĞ²Î¹¹Ôì
+ExtTime::ExtTime(int initHrs, int initMins, int initSecs, ZoneType initZone) : Time(initHrs, initMins, initSecs)//ÔÚ³õÊ¼»¯Æ÷ÁĞ±íÖĞÍê³É»ùÀà¹¹Ôì
+{
+    zone = initZone;
+}
+
+//×ÓÀàµÄÎŞ²Î¹¹Ôì
+ExtTime::ExtTime()
+{
+    zone = EST;
+}
+
+void ExtTime::Set(int hours, int minutes, int seconds, ZoneType timeZone)
+{
+    Time::Set(hours, minutes, seconds);   //SetÖØĞ´ÁË £¬µ«»¹ÊÇµ÷ÓÃ»ùÀàµÄSetº¯Êı£¨±»Òş²ØÁË£¬ĞèÒªÓÃ×÷ÓÃÓòTime::·ÃÎÊ£©
+    zone = timeZone;
+}
+
+void ExtTime::Write() const
+{
+    static string zoneString[8] = {"EST", "CST", "MST", "PST", "EDT", "CDT", "MDT", "PDT"};
+
+    Time::Write();
+    cout << ' ' << zoneString[zone];
+}
+
+int main()
+{
+    ExtTime time1(5, 30, 0, CDT);
+    ExtTime time2;
+    int     count;
+//time1.Set(1,1,1);
+    cout << "time1: ";
+    time1.Write();
+    cout << endl;
+    
+    cout << "Incrementing time2:" << endl;
+    for (count = 1; count <= 10; count++)
+    {
+        time2.Write();
+        cout << endl;
+        time2.Increment();
+    }
+
+    Time time3(1, 2, 3);
+    cout << "time3: ";
+    time3.Write();
+    cout << endl << endl;
+
+    //¿Í»§´úÂëÖ±½Ó·ÃÎÊÅÉÉúÀà¼Ì³ĞµÄ»ùÀàµÄpublic ³ÉÔ±
+
+    time1.Time::Set(3, 4, 5);
+    time1.Time::Write();
+
+    cout << endl;
+    system("pause");
+    return 0;
+}
+
+/*
+4.6.3 ¼Ì³ĞÖĞµÄ¶ÔÏóÄ£ĞÍ
+´Ó¸¸Àà¼Ì³Ğ¹ıÀ´µÄ³ÉÔ±£¬Ë½ÓĞ³ÉÔ±»á±»Òş²ØÎŞ·¨·ÃÎÊ£¨ÔÚÄÚ´æÖĞ»¹ÊÇ¼Ì³ĞÏÂÈ¥ÁË£©
 */
 
 /*
-4.6.4 ç»§æ‰¿ä¸­çš„æ„é€ å’Œææ„é¡ºåº
-æ„é€ é¡ºåºï¼šçˆ¶ç±»ï¼Œå†å­ç±»
-ææ„é¡ºåºï¼šå­ç±»ï¼Œå†çˆ¶ç±»
+4.6.4 ¼Ì³ĞÖĞµÄ¹¹ÔìºÍÎö¹¹Ë³Ğò
+¹¹ÔìË³Ğò£º¸¸Àà£¬ÔÙ×ÓÀà
+Îö¹¹Ë³Ğò£º×ÓÀà£¬ÔÙ¸¸Àà
 */
 
 /*
-4.6.5 ç»§æ‰¿åŒåæˆå‘˜å¤„ç†æ–¹å¼
-ç›´æ¥è®¿é—®ï¼šä¼šè°ƒç”¨åˆ°å­ç±»çš„æˆå‘˜
-æ·»åŠ ä½œç”¨åŸŸï¼Œæ‰å¯ä»¥è®¿é—®åˆ°çˆ¶ç±»çš„æˆå‘˜ï¼ˆå³å­ç±»éšè—äº†çˆ¶ç±»çš„æˆå‘˜å‡½æ•°ï¼‰
+4.6.5 ¼Ì³ĞÍ¬Ãû³ÉÔ±´¦Àí·½Ê½
+Ö±½Ó·ÃÎÊ£º»áµ÷ÓÃµ½×ÓÀàµÄ³ÉÔ±
+Ìí¼Ó×÷ÓÃÓò£¬²Å¿ÉÒÔ·ÃÎÊµ½¸¸ÀàµÄ³ÉÔ±£¨¼´×ÓÀàÒş²ØÁË¸¸ÀàµÄ³ÉÔ±º¯Êı£©
 */
 class Base {
 public:
@@ -134,11 +341,11 @@ public:
 	}
 	void func()
 	{
-		cout << "Base - func()è°ƒç”¨" << endl;
+		cout << "Base - func()µ÷ÓÃ" << endl;
 	}
 	void func(int a)
 	{
-		cout << "Base - func(int a)è°ƒç”¨" << endl;
+		cout << "Base - func(int a)µ÷ÓÃ" << endl;
 	}
 public:
 	int m_A;
@@ -150,11 +357,11 @@ public:
 	{
 		m_A = 200;
 	}
-	//å½“å­ç±»ä¸çˆ¶ç±»æ‹¥æœ‰åŒåçš„æˆå‘˜å‡½æ•°ï¼Œå­ç±»ä¼šéšè—çˆ¶ç±»ä¸­æ‰€æœ‰ç‰ˆæœ¬çš„åŒåæˆå‘˜å‡½æ•°
-	//å¦‚æœæƒ³è®¿é—®çˆ¶ç±»ä¸­è¢«éšè—çš„åŒåæˆå‘˜å‡½æ•°ï¼Œéœ€è¦åŠ çˆ¶ç±»çš„ä½œç”¨åŸŸ
+	//µ±×ÓÀàÓë¸¸ÀàÓµÓĞÍ¬ÃûµÄ³ÉÔ±º¯Êı£¬×ÓÀà»áÒş²Ø¸¸ÀàÖĞËùÓĞ°æ±¾µÄÍ¬Ãû³ÉÔ±º¯Êı
+	//Èç¹ûÏë·ÃÎÊ¸¸ÀàÖĞ±»Òş²ØµÄÍ¬Ãû³ÉÔ±º¯Êı£¬ĞèÒª¼Ó¸¸ÀàµÄ×÷ÓÃÓò
 	void func()
 	{
-		cout << "Son - func()è°ƒç”¨" << endl;
+		cout << "Son - func()µ÷ÓÃ" << endl;
 	}
 public:
 	int m_A;
@@ -162,8 +369,8 @@ public:
 
 int main() {
 	Son s;
-	cout << "Sonä¸‹çš„m_A = " << s.m_A << endl;
-	cout << "Baseä¸‹çš„m_A = " << s.Base::m_A << endl;
+	cout << "SonÏÂµÄm_A = " << s.m_A << endl;
+	cout << "BaseÏÂµÄm_A = " << s.Base::m_A << endl;
 	s.func();
 	s.Base::func();
 	s.Base::func(10);
@@ -173,32 +380,258 @@ int main() {
 }
 
 /*
-4.6.6 å­ç±»ä¸­è®¿é—®çˆ¶ç±»çš„åŒåæˆå‘˜
-åŒä¸Šï¼Œéœ€è¦æ·»åŠ ä½œç”¨åŸŸ
+4.6.6 ×ÓÀàÖĞ·ÃÎÊ¸¸ÀàµÄÍ¬Ãû³ÉÔ±
+Í¬ÉÏ£¬ĞèÒªÌí¼Ó×÷ÓÃÓò
 */
 
+
 /*
-4.6.7 å¤šç»§æ‰¿è¯­æ³•
-ç»§æ‰¿å¤šä¸ªçˆ¶ç±»
-è¯­æ³•ï¼š class å­ç±» ï¼šç»§æ‰¿æ–¹å¼ çˆ¶ç±»1 ï¼Œ ç»§æ‰¿æ–¹å¼ çˆ¶ç±»2...
+ÀàĞÍ¼æÈİĞÔ£¨ÏòÉÏ¼æÈİ£©£º¿ÉÒÔ½«×ÓÀàµÄ¶ÔÏó¸³Öµ¸ø¸¸ÀàµÄ¶ÔÏó£¬·´Ö®²»¿É¡££¨ÒòÎªÃ¿¸öÅÉÉúÀà¶ÔÏó°üº¬ÁË»ùÀàµÄÒ»²¿·Ö£©
+¸Ã¹æÔòÖ»ÊÊÓÃÓÚ¹«ÓĞÅÉÉú
+
+ÀàĞÍµÄ×ª»»
+    upcastingÏòÉÏ/¸¸ÀàĞÍ×ª»»£¬Ö±½ÓÊ¹ÓÃÉÏÃæµÄÀàĞÍ¼æÈİĞÔ¹æÔò£¬Óï·¨£º»ùÀà¶ÔÏó=ÅÉÉúÀà¶ÔÏó
+    downcastingÏòÏÂ/×ÓÀàĞÍ×ª»»£¬Ê¹ÓÃdynamic_cast<T*>£¬Óï·¨£º»ùÀà¶ÔÏó=dynamic_cast<»ùÀà*>×ÓÀà¶ÔÏó;
 */
+class BASE {
+protected:
+	int x;
+public:
+	BASE(int x=1):x(x) {};
+	void print() {
+		cout << x << endl;
+	};
+};
+
+class DERIVED:public BASE {
+	int y;
+public:
+	DERIVED(int y=2,int x=0):BASE(x),y(y) {}; 
+	void print() {
+		cout << x << "," << y << endl;
+	};	
+};
+
+class IndirectDerived:public DERIVED {
+	int z = 10;
+public:
+	void print() {
+		cout << x << "," << z << endl;
+	};
+};
+
+void func(BASE &r) {
+	r.print();
+};
+
+void func(const int &p) {
+	int &q = (int &)p;
+	q = 21;
+}
+
+void func(int *p) {
+	*p = 31;
+	cout << *p << endl;
+}
+int main() {
+	BASE obj1;
+	obj1.print(); // 1
+	DERIVED obj2;
+	obj2.print();// 0 2
+
+    //ÀàĞÍ¼æÈİ
+	obj1 = obj2; //»ùÀà¶ÔÏó=ÅÉÉúÀà¶ÔÏó obj1»ñµÃÁËobj2µÄ»ùÀà²¿·ÖµÄÊı¾İ
+    obj1.print(); //0
+    //obj2=obj1; //error
+    DERIVED* pd = static_cast<DERIVED*>(&obj1);//¿ÉÒÔ×ª»» µ«²»°²È«
+    pd->print();//0 39199984(·Ç·¨Êı¾İ)
+
+    BASE obj0;
+    obj0.print();//1
+	*(BASE*)(&obj2) = obj0;// Ö»¶Ô obj2 µÄ¸¸ÀàÊı¾İ²¿·Ö²Ù×÷£¬ÁîÆä¸´ÖÆobj1£¨¸¸Àà£©µÄÖµ
+	obj2.print();//1 2
+	
+	//¼æÈİ¼æÈİ Ö¸ÕëĞÎÊ½Ò²¿ÉÒÔ 
+	BASE obj3(5);
+	BASE *pB = &obj3;//¸¸Àà=¸¸Àà
+	pB = &obj2;//¸¸Àà=×ÓÀà
+	pB->print();
+	
+	// ¶ÔÏó×÷Îª²ÎÊı´«µİ£¬ÏòÉÏÀàĞÍ×ª»»»ò¸³Öµ 
+	IndirectDerived obj4;
+	func(obj4);//0 ;½ÓÊÕÀàĞÍÊÇ»ùÀà£¨´Ó×ÓÀà->»ùÀà£©
+	
+    system("pause");
+    return 0;
+}
+/*
+ËÄÖÖ³£ÓÃÀàĞÍ×ª»»¹Ø¼ü×Ö£º
+    static_cast£º
+        ÓÃÓÚ»ù±¾ÀàĞÍÖ®¼äµÄ×ª»»¡¢Àà²ã´Î½á¹¹ÖĞÏòÉÏ/ÏòÏÂ×ª»»£¨°²È«Ç°ÌáÏÂ£©£¬
+        ±àÒëÆÚ¼ì²é£¬³£ÓÃÓÚÊıÖµÀàĞÍ×ª»»ºÍ¸¸×ÓÀàÖ¸Õë/ÒıÓÃ×ª»»¡£
+    const_cast£º
+        È¥³ı»òÌí¼Ó const/volatile ÊôĞÔ£¬³£ÓÃÓÚĞèÒªĞŞ¸Ä±¾Ó¦Ö»¶ÁµÄÊı¾İ£¨²»ÍÆ¼ö£¬Î£ÏÕ£©¡£
+    reinterpret_cast£º
+        ÓÃÓÚÇ¿ÖÆ×ª»»²»Í¬ÀàĞÍµÄÖ¸Õë»òÒıÓÃ£¨¼«ÆäÎ£ÏÕ£©
+        ±ÈÈç°Ñ int* ×ªÎª char*£¬»ò°Ñ¶ÔÏóÖ¸Õë×ªÎªÆäËûÀàĞÍÖ¸Õë¡£
+    dynamic_cast£º
+        ÓÃÓÚ¶àÌ¬ÀàĞÍµÄ°²È«ÏòÏÂ×ª»»£¨»ùÀàÖ¸Õë/ÒıÓÃ×ªÅÉÉúÀàÖ¸Õë/ÒıÓÃ£©£¬
+        ÔËĞĞÊ±¼ì²éÀàĞÍ°²È«£¬Ê§°ÜÊ±·µ»Ø nullptr »òÅ×Òì³£¡£
+*/
+void func(int* j)
+{
+    *j = 100; // ĞŞ¸ÄÖ¸ÕëÖ¸ÏòµÄÖµ
+    cout<<*j<<endl;
+}
+int main()
+{
+    double d = 3.14;
+    int i = static_cast<int>(d); // double ×ª int
+    cout<<i<<endl;// 3
+
+    int k = 20;
+    func(&k); //100 ´«µİÆÕÍ¨±äÁ¿Ö¸Õë£¬¿ÉÒÔĞŞ¸Ä
+
+    const int j = 30;
+    func(const_cast<int*>(&j)); //100 È¥µôconstÊôĞÔ£¬ÊÔÍ¼ĞŞ¸Äj£¨Î´¶¨ÒåĞĞÎª£©
+    cout << j << endl; //30; j ÒÀÈ»²»»á±»ĞŞ¸Ä£¨ÒòÎªjÊÇ³£Á¿£¬ĞŞ¸ÄÊôÓÚÎ´¶¨ÒåĞĞÎª£©
+
+    int a = 10;
+    char* p = reinterpret_cast<char*>(&a); // int* ×ª char*
+    cout<<*p<<endl;
+
+    system("pause");
+    return 0;
+}
 
 /*
-4.6.8 è±å½¢ç»§æ‰¿
-ä¸¤ä¸ªæ´¾ç”Ÿç±»ï¼ˆç¾Šã€é©¼ï¼‰ç»§æ‰¿åŒä¸€ä¸ªçˆ¶ç±»ï¼ˆåŠ¨ç‰©ï¼‰
-å¦ä¸€ä¸ªç±»ï¼ˆç¾Šé©¼ï¼‰åŒæ—¶ç»§æ‰¿è¿™ä¸¤ä¸ªæ´¾ç”Ÿç±»
+4.6.7 ¶àÖØ¼Ì³Ğ
+¼Ì³Ğ¹ØÏµ£ºµ¥¼Ì³Ğ¡¢¶àÖØ¼Ì³Ğ¡¢ÁâĞÎ¼Ì³Ğ
 
+¼Ì³Ğ¶à¸ö¸¸Àà
+Óï·¨£º class ×ÓÀà £º¼Ì³Ğ·½Ê½ ¸¸Àà1 £¬ ¼Ì³Ğ·½Ê½ ¸¸Àà2...
+*/
+class Device1 {
+public:
+    Device1()
+    {
+        volume = 5;
+        powerOn = false;
+    }
+    Device1(int vol, bool onOrOff)
+    {
+        volume = vol;
+        powerOn = onOrOff;
+    }
+    void showPower()
+    {
+        cout << "The status of the power is :";
+        switch (powerOn) {
+        case true:
+            cout << "Power on. \n";
+            break;
+        case false:
+            cout << "power off. \n";
+            break;
+        }
+    }
+    void showVol()
+    {
+        cout << "Volume is " << volume << endl;
+    }
+protected:
+    int volume;                
+    bool powerOn;     
+};
 
-é—®é¢˜ï¼šç¾Šé©¼ä½¿ç”¨æ•°æ®æ—¶ä¼šäº§ç”ŸäºŒä¹‰æ€§ï¼Œæ¯”å¦‚ï¼šé€šè¿‡ç¾Šè¿˜æ˜¯é©¼ä½¿ç”¨çˆ¶ç±»åŠ¨ç‰©çš„æ•°æ®å‘¢ï¼Ÿ
-è§£å†³ï¼šè™šç»§æ‰¿
-    1. åœ¨çˆ¶ç±»å‰åŠ ä¸Šå…³é”®å­— virtual
-    2. åœ¨å­ç±»ä¸­ä½¿ç”¨çˆ¶ç±»çš„æˆå‘˜æ—¶ï¼Œæ·»åŠ ä½œç”¨åŸŸ
-    3. åªä¼šåœ¨å†…å­˜ä¸­å­˜åœ¨ä¸€ä»½çˆ¶ç±»çš„æˆå‘˜
+class Device2 {
+public:
+    Device2()
+    {
+        talkTime = 10;
+        standbyTime = 300;
+        power = 100;
+    }
+    Device2(int newTalkTime, int newStandbyTime, float powerCent)
+    {
+        talkTime = newTalkTime;
+        standbyTime = newStandbyTime;
+        power = powerCent;
+    }
+    void showProperty()
+    {
+        cout << "The property of the device : " << endl;
+        cout << "talk time: " << talkTime << " hours" << endl;
+        cout << "standbyTime: " << standbyTime << " hours" << endl;
+    }
+    void showPower()
+    {
+        cout << " Power: " << power << endl;
+    }
+protected:
+    int  talkTime;                  
+    int  standbyTime;      
+    float power;               
+};
 
+class DeviceNew : public Device1, public Device2 {//¶àÖØ¼Ì³Ğ
+public:
+    DeviceNew()
+    {
+        weight = 0.56;
+    }
+    DeviceNew(float newWeight, int vol, bool onOrOff, int newTalkTime,
+        int newStandbyTime, float powerCent) :
+        Device2(newTalkTime, newStandbyTime, powerCent),
+        Device1(vol, onOrOff)
+    {
+        weight = newWeight;
+    }
+    float getWeight()
+    {
+        return weight;
+    }
+private:
+    float weight;
+};
 
-è±å½¢ç»§æ‰¿ä¸­çš„æ„é€ å‡½æ•°å’Œææ„å‡½æ•°ï¼š
-    1.åŠ¨ç‰©ç±»çš„è™šæ„å‡½æ•°éœ€è¦ä½¿ç”¨virtual
-    2.ç¾Šé©¼ç±»çš„æ„é€ å‡½æ•°éœ€è¦å…ˆè°ƒç”¨çˆ¶ç±»ï¼ˆåŠ¨ç‰©ï¼‰çš„æ„é€ å‡½æ•°ï¼Œå†è°ƒç”¨å­ç±»ï¼ˆç¾Šã€é©¼ï¼‰çš„æ„é€ å‡½æ•°
+int main()
+{
+    DeviceNew  device(0.7, 3, false, 10, 250, 80);         //ÉùÃ÷ÅÉÉúÀà¶ÔÏó
+
+    // getWeight()º¯ÊıÊÇDEVICE_NEWÀà×ÔÉí¶¨ÒåµÄ
+    cout << "The weight of the device : " << device.getWeight() << endl;
+
+    // showVol()º¯ÊıÊÇ´ÓDEVICE1Àà¼Ì³ĞÀ´µÄ
+    device.showVol();
+
+    // showProperty()º¯ÊıÊÇ´ÓDEVICE2Àà¼Ì³ĞÀ´µÄ
+    device.showProperty();
+    return 0;
+}
+
+/*
+4.6.8 ÁâĞÎ¼Ì³Ğ
+Á½¸öÅÉÉúÀà£¨Ñò¡¢ÍÕ£©¼Ì³ĞÍ¬Ò»¸ö¸¸Àà£¨¶¯Îï£©
+ÁíÒ»¸öÀà£¨ÑòÍÕ£©Í¬Ê±¼Ì³ĞÕâÁ½¸öÅÉÉúÀà
+
+ÎÊÌâ£ºÑòÍÕÊ¹ÓÃÊı¾İÊ±»á²úÉú¶şÒåĞÔ£¬±ÈÈç£ºÍ¨¹ıÑò»¹ÊÇÍÕÊ¹ÓÃ¸¸Àà¶¯ÎïµÄÊı¾İÄØ£¿
+½â¾ö£ºĞé¼Ì³Ğ
+    1. ÔÚ¸¸ÀàÇ°¼ÓÉÏ¹Ø¼ü×Ö virtual ÄÇÃ´»ùÀà¾ÍÊÇÒ»¸öĞéÄâ»ùÀà
+    2. ÔÚ×ÓÀàÖĞÊ¹ÓÃ¸¸ÀàµÄ³ÉÔ±Ê±£¬Ìí¼Ó×÷ÓÃÓò
+    3. Ö»»áÔÚÄÚ´æÖĞ´æÔÚÒ»·İ¸¸ÀàµÄ³ÉÔ±£¬¼´virtual¹Ø¼ü×Ö±£Ö¤ÁËĞéÄâÀàµÄÎ¨Ò»¸±±¾Ö»³õÊ¼»¯Ò»´Î
+
+ÆÕÍ¨»ùÀàvsĞéÄâ»ùÀà£ºÔÚÅÉÉúÀàÖØ¸´¼Ì³ĞÁËÄ³Ò»»ùÀàÊ±±íÏÖ³öÇø±ğ
+
+ÁâĞÎ¼Ì³ĞÖĞµÄ¹¹Ôìº¯ÊıºÍÎö¹¹º¯Êı£º
+    1.¶¯ÎïÀàµÄĞé¹¹º¯ÊıĞèÒªÊ¹ÓÃvirtual
+    2.ÑòÍÕÀàµÄ¹¹Ôìº¯ÊıĞèÒªÏÈµ÷ÓÃ¸¸Àà£¨¶¯Îï£©µÄ¹¹Ôìº¯Êı£¬ÔÙµ÷ÓÃ×ÓÀà£¨Ñò¡¢ÍÕ£©µÄ¹¹Ôìº¯Êı
+
+´´½¨ÅÉÉúÀà¶ÔÏóÊ±¹¹Ôìº¯ÊıµÄµ÷ÓÃ´ÎĞò£º
+	1.×îÏÈµ÷ÓÃĞé»ùÀàµÄ¹¹Ôìº¯Êı
+	2.µ÷ÓÃÆÕÍ¨»ùÀàµÄ¹¹Ôìº¯Êı£¨¶à¼Ì³Ğ°´ÕÕÉùÃ÷´ÎĞò£©
+	3.µ÷ÓÃ¶ÔÏó³ÉÔ±µÄ¹¹Ôìº¯Êı
+	4.Ö´ĞĞÅÉÉúÀàµÄ¹¹Ôìº¯ÊıÌå
 */
 class Animal
 {
@@ -206,8 +639,8 @@ public:
 	int m_Age;
 };
 
-//ç»§æ‰¿å‰åŠ virtualå…³é”®å­—åï¼Œå˜ä¸ºè™šç»§æ‰¿
-//æ­¤æ—¶å…¬å…±çš„çˆ¶ç±»Animalç§°ä¸ºè™šåŸºç±»
+//¼Ì³ĞÇ°¼Óvirtual¹Ø¼ü×Öºó£¬±äÎªĞé¼Ì³Ğ
+//´ËÊ±¹«¹²µÄ¸¸ÀàAnimal³ÆÎªĞé»ùÀà
 class Sheep : virtual public Animal {};//virtual
 class Tuo   : virtual public Animal {};//virtual
 class SheepTuo : public Sheep, public Tuo {};
@@ -216,7 +649,7 @@ int main() {
 
 	SheepTuo st;
 	st.Sheep::m_Age = 100;
-	st.Tuo::m_Age = 200;//éƒ½æ˜¯å¯¹åŒä¸€ä¸ªæ•°æ®æ“ä½œ
+	st.Tuo::m_Age = 200;//¶¼ÊÇ¶ÔÍ¬Ò»¸öÊı¾İ²Ù×÷
 	cout << "st.Sheep::m_Age = " << st.Sheep::m_Age << endl;
 	cout << "st.Tuo::m_Age = " <<  st.Tuo::m_Age << endl;
 	cout << "st.m_Age = " << st.m_Age << endl;
