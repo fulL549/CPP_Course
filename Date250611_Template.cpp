@@ -14,14 +14,19 @@ using namespace std;
 
 /*
 1.2 函数模板
-C++另一种编程思想称为 ==泛型编程== ，主要利用的技术就是模板
-C++提供两种模板机制:函数模板和类模板
+C++另一种编程思想称为泛型编程，主要利用的技术就是模板
+泛型编程：
+	独立于任何特定数据类型的编程，使得不同类型的数据可以被相同的代码操作
+	使用模板进行泛型编程，包括：C++提供两种模板机制:函数模板和类模板
+	从通用模板到实例代码，具体数据类型才能确定
+	泛型编程是一种编译时多态（静态多态），数据类型本身是参数化的
 */
 
 /*
 1.2.1 函数模板语法
-template<typename T>
+template<typename T1,typename T2>
 T为虚拟类
+提高代码复用性，处理未知的类型
 */
 
 //利用模板提供通用的交换函数 不再需要根据每个类型编写一个函数
@@ -127,7 +132,6 @@ int main() {
 
 /*
 1.2.5 调用规则
-如果函数模板和普通函数都可以实现，优先调用普通函数
 可以通过空模板参数列表来强制调用函数模板
 函数模板也可以发生重载
 如果函数模板可以产生更好的匹配,优先调用函数模板
@@ -170,12 +174,68 @@ int main() {
 	system("pause");
 	return 0;
 }
+/*
+调用优先级：		
+	如果函数模板和普通函数都可以实现，优先调用普通函数
+	如果能找到具体化（特化）的模板，调用之
+	如果能从同名的函数模板实例化一个函数实例，若形参类型和实参类型完全一致则调用之
+	对函数调用的实参进行隐式类型转换后与非模板函数进行匹配，若能一致则调用之
+*/
+// 函数模板demoPrint
+template <typename T>
+void demoPrint(const T v1, const T v2)
+{
+    cout << "the first version of demoPrint()" << endl;
+    cout << "the arguments: " << v1 << " " << v2 << endl;
+}
+// 函数模板demoPrint的指定特殊
+template <>
+void demoPrint(const char v1, const char v2)
+{
+    cout << "the specify special of demoPrint()" << endl;
+    cout << "the arguments: " << v1 << " " << v2 << endl;
+}
+// 函数模板demoPrint重载的函数模板
+template <typename T>
+void demoPrint(const T v)
+{	
+    cout << "the second version of demoPrint()" << endl;
+    cout << "the argument: " << v << endl;
+}
+// 非函数模板demoPrint
+void demoPrint(const double v1, const double v2)
+{	
+    cout << "the nonfunctional template version of demoPrint()" << endl;
+    cout << "the arguments: " << v1 << " " << v2 << endl;
+}
+
+int main()
+{
+    string s1("rabbit"), s2("bear");
+    char c1('k'), c2('b');
+    int iv1 = 3, iv2 = 5;
+    double dv1 = 2.8, dv2 = 8.5;
+    // 调用第一个函数模板
+    demoPrint(iv1, iv2);
+    // 调用第一个函数模板的指定特殊
+    demoPrint(c1, c2);
+    // 调用第二个函数模板
+    demoPrint(iv1);
+    // 调用非函数模板(普通函数优先匹配)
+    demoPrint(dv1, dv2);
+    // 隐式转换后调用非函数模板
+    demoPrint(iv1, dv2);    
+    // 调用第一个函数模板 模板指定类型，可以进行隐式转换
+    demoPrint<int>(iv1, dv2);    
+    system("pause");
+    return 0;
+}
 
 /*
-1.2.6 模板的局限性
+1.2.6 模板的局限性与具体化（特化）
 不使用自定义类
 
-具体化：
+模板具体化（特化）：
 	自定义类模板来拓展原来的普通模板
 	语法 template<> bool myCompare(Person &p1, Person &p2)
 	多加了个template<> 
@@ -269,6 +329,8 @@ int main() {
 1.3.1 类模板的语法
 template<typename T>
 类
+
+类模板是一个通用类模板，不能用于创建对象，只有经过实例化才可以得到类去创建对象
 */
 #include <string>
 //类模板
@@ -464,6 +526,9 @@ int main() {
 /*
 1.3.6 类模板成员函数类外实现
 类模板中成员函数类外实现时，需要加上模板参数列表
+语法：
+	template<模板形参表>
+	返回值类型 类模板名<模板形参名列表>::函数名(函数形参列表)
 */
 template<class T1, class T2>
 class Person {
@@ -490,11 +555,140 @@ void Person<T1, T2>::showPerson() {
 	cout << "姓名: " << this->m_Name << " 年龄:" << this->m_Age << endl;
 }
 
+/*
+类型模板形参和非类型模板形参
+非类型模板形参：
+	相当于模板内部的常量
+	形式上类似于普通的函数形参
+	队模板进行实例化时，非类型形参由相应模板实参的值代替
+	对应的模板实参必须是编译时常量表达式
+*/
+
+/* 非模板形参实例1 */
+/* 类模板：使用数组实现的栈*/
+template <typename ElementType, int N>                  
+class Stack {
+public:
+    Stack();
+    ~Stack();
+    void push(ElementType obj);      
+    void pop();                      
+    ElementType getTop() const;     
+    bool isEmpty() const;
+
+private:
+    /* 栈节点类型 */
+    ElementType elements[N];
+    int count;
+};
+/* 构造函数 */
+template <typename ElementType, int N>    
+Stack<ElementType, N>::Stack()
+{
+    memset(elements, 0, sizeof(elements));
+    count = 0;
+}
+/* 析构函数 */
+template <typename ElementType, int N>    
+Stack<ElementType, N>::~Stack()
+{
+    
+}
+/* 向栈内压入元素 */
+template <typename ElementType, int N>    
+void Stack<ElementType, N>::push( ElementType obj )
+{
+    elements[count++] = obj;
+}
+/* 从栈顶弹出元素 */
+template <typename ElementType, int N>    
+void Stack<ElementType, N>::pop()
+{
+    count--;
+}
+/* 获取栈顶元素 */
+template <typename ElementType, int N>    
+ElementType Stack<ElementType, N>::getTop() const 
+{
+    return elements[count-1];
+}
+/* 判断栈是否为空 */
+template <typename ElementType, int N>    
+bool Stack<ElementType, N>::isEmpty() const
+{
+    return count == 0;
+}
+
+int main()
+{
+    Stack<int, 10> stack;//传入实参数10
+    
+    for (int i = 1; i < 9; i++)
+	stack.push(i);
+	
+    while (!stack.isEmpty()) {//输出	      
+	    cout << stack.getTop() << " ";      
+	    stack.pop();			          
+    }
+    system("pause");
+    return 0;
+}
+
+
+/* 数组的引用或指针 */
+template <typename T, int N>
+void printValues(T (&arr)[N]) {//这里接收数组时传入的参数要与N相等，即保证传入的数组和接收的数组长度一致
+	cout << "(T&)[" << N << "]\n";
+    for (int i = 0; i != N; ++i)
+	    cout<< arr[i] << ","; 
+	cout << endl;
+}
+
+
+template <typename T, int N>
+void printValues(T (*arr)[N]) {//使用指针接收元素
+	cout << "(T*)[" << N << "]\n"; 
+    for (int i = 0; i != N; ++i)
+	    cout<< *arr[i] << ","; 
+	cout << endl;
+}
+
+/* 不使用非模板形参实现 */
+template <typename T>
+void printValues(T arr[], int N) {//这里接收数组时不指定长度，但需要另外有一个参数用于后续访问防越界
+//void printValues(T *arr, int N) {//等效
+	cout << "T*" << "\n";
+    for (int i = 0; i != N; ++i)
+	    cout<< arr[i] << ","; 
+	cout << endl;
+}
+
+int main()
+{
+    int intArr[6] = {1, 2, 3, 4, 5, 6};
+    double dblArr[4] = {1.2, 2.3, 3.4, 4.5};
+
+    // 生成函数实例printValues(int (&) [6])
+    printValues(intArr);	
+    // 生成函数实例printValues(double (&) [4])
+    printValues(dblArr);
+	//重载 ?
+	//printValues(&dblArr);
+	//  
+	printValues(intArr, 6);	
+    system("pause");
+    return 0;
+}
 
 /*
 1.3.7类模板分文件编写
-解决方式1：直接包含.cpp源文件
-解决方式2：将声明和实现写到同一个文件中，并更改后缀名为.hpp，hpp是约定的名称，并不是强制
+与一般情况不同，模板要进行实例化，编译器必须能够访问模板定义的源代码
+为了在模板中实现一般的声明定义分离，C++提供两种方法能够访问模板定义的源代码
+	解决方式1：包含编译模式 
+		直接包含.cpp源文件（原来只需要包含.h文件） 在头文件+#include<xxx.cpp>
+		或 将声明和实现写到同一个文件中，并更改后缀名为.hpp，hpp是约定的名称，并不是强制
+	解决方式2：分离编译模式
+		声明和定义分离，在实现文件中使用保留字export告诉编译器需要记住那些模板定义（不是所有编译器都支持）
 */
 
 /*
