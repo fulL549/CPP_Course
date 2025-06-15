@@ -70,3 +70,64 @@
 迭代器： vector<int>::iterator
 */
 
+/*
+auto和decltype关键字
+auto：占位符类型说明符
+    auto x=expr;//从初始化器推导类型
+decltype：说明符
+    decltype(expr);//什么从表达式得到的类型
+*/
+#include <vector>
+#include <iostream>                                                 
+using namespace std;
+int main()
+{
+    vector<int> ivec = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9};      
+
+    vector<int>::iterator it=ivec.begin();//直接求迭代器
+    cout<<*it<<endl;
+
+    auto itt=ivec.begin();//auto得到迭代器
+    cout<<*itt<<endl;
+
+    decltype(ivec.begin()) ittt=ivec.begin();//decltype得到迭代器
+    cout<<*ittt<<endl;
+    for(auto i:ivec)
+    {
+        cout<<i<<" ";
+    }    
+    system("pause");
+    return 0;
+}
+
+
+int main()
+{
+	vector<int> ivec(10, 2);			 // 创建含10个值为2的元素的vector容器
+	vector<int>::iterator iter;			 // 声明迭代器对象
+	//ex:auto and decltpye
+	//decltype(ivec.begin())  iter;
+	vector<int>::reverse_iterator riter; // 声明迭代器对象
+
+	iter = ivec.begin(); // 获取指向第0个元素的迭代器
+	*iter += 10;		 // 将第0个元素的值加10
+
+	riter = ivec.rend(); // 逆向迭代器 riter指向第0个元素的前一位置
+	*(riter - 1) += 10;	 // 将第0个元素的值加10
+
+	iter = ivec.end(); // iter指向最后一个元素的下一位置
+	*(iter - 1) = 100; // 将最后一个元素的值改为100
+
+	riter = ivec.rbegin(); // 逆向迭代器 riter指向最后一个元素
+	*riter -= 20;		   // 将最后一个元素的值减20
+	
+	for (auto it = ivec.begin(); it != ivec.end(); it++ ) {
+		std::cout  << *it << "," ;
+	}
+	std::cout << std::endl;
+	
+	for (auto it = ivec.rbegin(); it != ivec.rend(); it++ ) {
+		std::cout  << *it << "," ;
+	}
+	std::cout << std::endl;	
+}
