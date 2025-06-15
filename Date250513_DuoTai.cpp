@@ -2,41 +2,41 @@
 using namespace std;
 
 /*
-4.7 å¤šæ€
+4.7 ¶àÌ¬
 */
 /*
-4.7.1 åŸºæœ¬æ¦‚å¿µ
-å¤šæ€åˆ†ä¸ºä¸¤ç±»
-    é™æ€å¤šæ€: å‡½æ•°é‡è½½ å’Œ è¿ç®—ç¬¦é‡è½½å±žäºŽé™æ€å¤šæ€ï¼Œå¤ç”¨å‡½æ•°å
-    åŠ¨æ€å¤šæ€: æ´¾ç”Ÿç±»å’Œè™šå‡½æ•°å®žçŽ°è¿è¡Œæ—¶å¤šæ€
+4.7.1 »ù±¾¸ÅÄî
+¶àÌ¬·ÖÎªÁ½Àà
+    ¾²Ì¬¶àÌ¬: º¯ÊýÖØÔØ ºÍ ÔËËã·ûÖØÔØÊôÓÚ¾²Ì¬¶àÌ¬£¬¸´ÓÃº¯ÊýÃû
+    ¶¯Ì¬¶àÌ¬: ÅÉÉúÀàºÍÐéº¯ÊýÊµÏÖÔËÐÐÊ±¶àÌ¬
 
-é™æ€å¤šæ€å’ŒåŠ¨æ€å¤šæ€åŒºåˆ«ï¼š
-    é™æ€å¤šæ€çš„å‡½æ•°åœ°å€æ—©ç»‘å®š - ç¼–è¯‘é˜¶æ®µç¡®å®šå‡½æ•°åœ°å€
-    åŠ¨æ€å¤šæ€çš„å‡½æ•°åœ°å€æ™šç»‘å®š - è¿è¡Œé˜¶æ®µç¡®å®šå‡½æ•°åœ°å€
+¾²Ì¬¶àÌ¬ºÍ¶¯Ì¬¶àÌ¬Çø±ð£º
+    ¾²Ì¬¶àÌ¬µÄº¯ÊýµØÖ·Ôç°ó¶¨ - ±àÒë½×¶ÎÈ·¶¨º¯ÊýµØÖ·
+    ¶¯Ì¬¶àÌ¬µÄº¯ÊýµØÖ·Íí°ó¶¨ - ÔËÐÐ½×¶ÎÈ·¶¨º¯ÊýµØÖ·
 
-å¤šæ€æ»¡è¶³æ¡ä»¶ï¼š 
-    1ã€æœ‰ç»§æ‰¿å…³ç³»
-    2ã€å­ç±»é‡å†™çˆ¶ç±»ä¸­çš„è™šå‡½æ•°(é‡å†™ï¼šå‡½æ•°è¿”å›žå€¼ç±»åž‹ å‡½æ•°å å‚æ•°åˆ—è¡¨ å®Œå…¨ä¸€è‡´ç§°ä¸ºé‡å†™)
+¶àÌ¬Âú×ãÌõ¼þ£º 
+    1¡¢ÓÐ¼Ì³Ð¹ØÏµ
+    2¡¢×ÓÀàÖØÐ´¸¸ÀàÖÐµÄÐéº¯Êý(ÖØÐ´£ºº¯Êý·µ»ØÖµÀàÐÍ º¯ÊýÃû ²ÎÊýÁÐ±í ÍêÈ«Ò»ÖÂ³ÆÎªÖØÐ´)
 
-å¤šæ€ä½¿ç”¨ï¼š
-    çˆ¶ç±»æŒ‡é’ˆæˆ–å¼•ç”¨æŒ‡å‘å­ç±»å¯¹è±¡
+¶àÌ¬Ê¹ÓÃ£º
+    ¸¸ÀàÖ¸Õë»òÒýÓÃÖ¸Ïò×ÓÀà¶ÔÏó
 */
 class Animal
 {
 public:
-	//è™šå‡½æ•° é‚£ä¹ˆç¼–è¯‘å™¨åœ¨ç¼–è¯‘çš„æ—¶å€™å°±ä¸èƒ½ç¡®å®šå‡½æ•°è°ƒç”¨äº†ã€‚
+	//Ðéº¯Êý ÄÇÃ´±àÒëÆ÷ÔÚ±àÒëµÄÊ±ºò¾Í²»ÄÜÈ·¶¨º¯Êýµ÷ÓÃÁË¡£
 	virtual void speak()
 	{
-		cout << "åŠ¨ç‰©åœ¨è¯´è¯" << endl;
+		cout << "¶¯ÎïÔÚËµ»°" << endl;
 	}
 };
 
-class Cat :public Animal//ç»§æ‰¿å…³ç³»
+class Cat :public Animal//¼Ì³Ð¹ØÏµ
 {
 public:
-	void speak()//å­ç±»é‡å†™çˆ¶ç±»çš„è™šå‡½æ•°
+	void speak()//×ÓÀàÖØÐ´¸¸ÀàµÄÐéº¯Êý
 	{
-		cout << "å°çŒ«åœ¨è¯´è¯" << endl;
+		cout << "Ð¡Ã¨ÔÚËµ»°" << endl;
 	}
 };
 
@@ -45,11 +45,11 @@ class Dog :public Animal
 public:
 	void speak()
 	{
-		cout << "å°ç‹—åœ¨è¯´è¯" << endl;
+		cout << "Ð¡¹·ÔÚËµ»°" << endl;
 	}
 };
 
-void DoSpeak(Animal & animal)//ä½¿ç”¨çˆ¶ç±»ï¼ˆAnimalï¼‰å¯¹è±¡æŒ‡å‘å­ç±»ï¼ˆCat Dogï¼‰å¯¹è±¡
+void DoSpeak(Animal & animal)//Ê¹ÓÃ¸¸Àà£¨Animal£©¶ÔÏóÖ¸Ïò×ÓÀà£¨Cat Dog£©¶ÔÏó
 {
 	animal.speak();
 }
@@ -65,9 +65,9 @@ int main() {
 }
 
 /*
-4.7.2 å¤šæ€æ ·ä¾‹ï¼šè®¡ç®—å™¨ç±»
-æŠ½è±¡è®¡ç®—å™¨ç±»
-å¤šæ€ä¼˜ç‚¹ï¼šä»£ç ç»„ç»‡ç»“æž„æ¸…æ™°ï¼Œå¯è¯»æ€§å¼ºï¼Œåˆ©äºŽå‰æœŸå’ŒåŽæœŸçš„æ‰©å±•ä»¥åŠç»´æŠ¤
+4.7.2 ¶àÌ¬ÑùÀý£º¼ÆËãÆ÷Àà
+³éÏó¼ÆËãÆ÷Àà
+¶àÌ¬ÓÅµã£º´úÂë×éÖ¯½á¹¹ÇåÎú£¬¿É¶ÁÐÔÇ¿£¬ÀûÓÚÇ°ÆÚºÍºóÆÚµÄÀ©Õ¹ÒÔ¼°Î¬»¤
 */
 class AbstractCalculator
 {
@@ -81,7 +81,7 @@ public :
 	int m_Num2;
 };
 
-//åŠ æ³•è®¡ç®—å™¨
+//¼Ó·¨¼ÆËãÆ÷
 class AddCalculator :public AbstractCalculator
 {
 public:
@@ -91,7 +91,7 @@ public:
 	}
 };
 
-//å‡æ³•è®¡ç®—å™¨
+//¼õ·¨¼ÆËãÆ÷
 class SubCalculator :public AbstractCalculator
 {
 public:
@@ -101,7 +101,7 @@ public:
 	}
 };
 
-//ä¹˜æ³•è®¡ç®—å™¨
+//³Ë·¨¼ÆËãÆ÷
 class MulCalculator :public AbstractCalculator
 {
 public:
@@ -114,21 +114,21 @@ public:
 
 void test02()
 {
-	//åˆ›å»ºåŠ æ³•è®¡ç®—å™¨
+	//´´½¨¼Ó·¨¼ÆËãÆ÷
 	AbstractCalculator *abc = new AddCalculator;
 	abc->m_Num1 = 10;
 	abc->m_Num2 = 10;
 	cout << abc->m_Num1 << " + " << abc->m_Num2 << " = " << abc->getResult() << endl;
-	delete abc;  //ç”¨å®Œäº†è®°å¾—é”€æ¯
+	delete abc;  //ÓÃÍêÁË¼ÇµÃÏú»Ù
 
-	//åˆ›å»ºå‡æ³•è®¡ç®—å™¨
+	//´´½¨¼õ·¨¼ÆËãÆ÷
 	abc = new SubCalculator;
 	abc->m_Num1 = 10;
 	abc->m_Num2 = 10;
 	cout << abc->m_Num1 << " - " << abc->m_Num2 << " = " << abc->getResult() << endl;
 	delete abc;  
 
-	//åˆ›å»ºä¹˜æ³•è®¡ç®—å™¨
+	//´´½¨³Ë·¨¼ÆËãÆ÷
 	abc = new MulCalculator;
 	abc->m_Num1 = 10;
 	abc->m_Num2 = 10;
@@ -143,40 +143,40 @@ int main() {
 }
 
 /*
-4.7.3 çº¯è™šå‡½æ•°å’ŒæŠ½è±¡ç±»
+4.7.3 ´¿Ðéº¯ÊýºÍ³éÏóÀà
 
-çº¯è™šå‡½æ•°ï¼š
-    åœ¨å¤šæ€ä¸­ï¼Œé€šå¸¸çˆ¶ç±»ä¸­è™šå‡½æ•°çš„å®žçŽ°æ˜¯æ¯«æ— æ„ä¹‰çš„ï¼Œä¸»è¦éƒ½æ˜¯è°ƒç”¨å­ç±»é‡å†™çš„å†…å®¹
-    å› æ­¤å¯ä»¥å°†è™šå‡½æ•°æ”¹ä¸ºçº¯è™šå‡½æ•°
-    çº¯è™šå‡½æ•°è¯­æ³•ï¼švirtual è¿”å›žå€¼ç±»åž‹ å‡½æ•°å ï¼ˆå‚æ•°åˆ—è¡¨ï¼‰= 0 ;
+´¿Ðéº¯Êý£º
+    ÔÚ¶àÌ¬ÖÐ£¬Í¨³£¸¸ÀàÖÐÐéº¯ÊýµÄÊµÏÖÊÇºÁÎÞÒâÒåµÄ£¬Ö÷Òª¶¼ÊÇµ÷ÓÃ×ÓÀàÖØÐ´µÄÄÚÈÝ
+    Òò´Ë¿ÉÒÔ½«Ðéº¯Êý¸ÄÎª´¿Ðéº¯Êý
+    ´¿Ðéº¯ÊýÓï·¨£ºvirtual ·µ»ØÖµÀàÐÍ º¯ÊýÃû £¨²ÎÊýÁÐ±í£©= 0 ;
 
-æŠ½è±¡ç±»
-    å½“ç±»ä¸­æœ‰äº†çº¯è™šå‡½æ•°ï¼Œè¿™ä¸ªç±»ä¹Ÿç§°ä¸º==æŠ½è±¡ç±»=
-    æ— æ³•å®žä¾‹åŒ–å¯¹è±¡
-    å­ç±»å¿…é¡»é‡å†™æŠ½è±¡ç±»ä¸­çš„çº¯è™šå‡½æ•°ï¼Œå¦åˆ™ä¹Ÿå±žäºŽæŠ½è±¡ç±»
+³éÏóÀà
+    µ±ÀàÖÐÓÐÁË´¿Ðéº¯Êý£¬Õâ¸öÀàÒ²³ÆÎª==³éÏóÀà=
+    ÎÞ·¨ÊµÀý»¯¶ÔÏó
+    ×ÓÀà±ØÐëÖØÐ´³éÏóÀàÖÐµÄ´¿Ðéº¯Êý£¬·ñÔòÒ²ÊôÓÚ³éÏóÀà
 */
 class Base
 {
 public:
-	virtual void func() = 0;//çº¯è™šå‡½æ•°
+	virtual void func() = 0;//´¿Ðéº¯Êý
 };
 
 class Son :public Base
 {
 public:
-	virtual void func() //å­ç±»å¿…é¡»é‡å†™æŠ½è±¡ç±»ä¸­çš„çº¯è™šå‡½æ•°
+	virtual void func() //×ÓÀà±ØÐëÖØÐ´³éÏóÀàÖÐµÄ´¿Ðéº¯Êý
 	{
-		cout << "funcè°ƒç”¨" << endl;
+		cout << "funcµ÷ÓÃ" << endl;
 	};
 };
 
 void test01()
 {
 	Base * base = NULL;
-	//base = new Base; // é”™è¯¯ï¼ŒæŠ½è±¡ç±»æ— æ³•å®žä¾‹åŒ–å¯¹è±¡
-	base = new Son;//çˆ¶ç±»å¯¹è±¡æŽ¥æ”¶å­ç±»å¯¹è±¡
+	//base = new Base; // ´íÎó£¬³éÏóÀàÎÞ·¨ÊµÀý»¯¶ÔÏó
+	base = new Son;//¸¸Àà¶ÔÏó½ÓÊÕ×ÓÀà¶ÔÏó
 	base->func();
-	delete base;//è®°å¾—é”€æ¯
+	delete base;//¼ÇµÃÏú»Ù
 }
 
 int main() {
@@ -186,26 +186,26 @@ int main() {
 }
 
 /*
-4.7.5 è™šæžæž„å’Œçº¯è™šæžæž„
-è™šæžæž„å‡½æ•°æ˜¯ç”¨æ¥è§£å†³é€šè¿‡çˆ¶ç±»æŒ‡é’ˆé‡Šæ”¾å­ç±»å¯¹è±¡
+4.7.5 ÐéÎö¹¹ºÍ´¿ÐéÎö¹¹
+ÐéÎö¹¹º¯ÊýÊÇÓÃÀ´½â¾öÍ¨¹ý¸¸ÀàÖ¸ÕëÊÍ·Å×ÓÀà¶ÔÏó
 
-é—®é¢˜ï¼šå¤šæ€ä½¿ç”¨æ—¶ï¼Œå¦‚æžœå­ç±»ä¸­æœ‰å±žæ€§å¼€è¾Ÿåˆ°å †åŒºï¼Œé‚£ä¹ˆçˆ¶ç±»æŒ‡é’ˆåœ¨é‡Šæ”¾æ—¶æ— æ³•è°ƒç”¨åˆ°å­ç±»çš„æžæž„ä»£ç 
-è§£å†³ï¼šå°†çˆ¶ç±»ä¸­çš„æžæž„å‡½æ•°æ”¹ä¸ºè™šæžæž„æˆ–è€…çº¯è™šæžæž„
+ÎÊÌâ£º¶àÌ¬Ê¹ÓÃÊ±£¬Èç¹û×ÓÀàÖÐÓÐÊôÐÔ¿ª±Ùµ½¶ÑÇø£¬ÄÇÃ´¸¸ÀàÖ¸ÕëÔÚÊÍ·ÅÊ±ÎÞ·¨µ÷ÓÃµ½×ÓÀàµÄÎö¹¹´úÂë
+½â¾ö£º½«¸¸ÀàÖÐµÄÎö¹¹º¯Êý¸ÄÎªÐéÎö¹¹»òÕß´¿ÐéÎö¹¹
 
-è™šæžæž„å’Œçº¯è™šæžæž„å…±æ€§ï¼š
-    å¯ä»¥è§£å†³çˆ¶ç±»æŒ‡é’ˆé‡Šæ”¾å­ç±»å¯¹è±¡
-    éƒ½éœ€è¦æœ‰å…·ä½“çš„å‡½æ•°å®žçŽ°
+ÐéÎö¹¹ºÍ´¿ÐéÎö¹¹¹²ÐÔ£º
+    ¿ÉÒÔ½â¾ö¸¸ÀàÖ¸ÕëÊÍ·Å×ÓÀà¶ÔÏó
+    ¶¼ÐèÒªÓÐ¾ßÌåµÄº¯ÊýÊµÏÖ
 
-è™šæžæž„å’Œçº¯è™šæžæž„åŒºåˆ«ï¼š
-    å¦‚æžœæ˜¯çº¯è™šæžæž„ï¼Œè¯¥ç±»å±žäºŽæŠ½è±¡ç±»ï¼Œæ— æ³•å®žä¾‹åŒ–å¯¹è±¡
+ÐéÎö¹¹ºÍ´¿ÐéÎö¹¹Çø±ð£º
+    Èç¹ûÊÇ´¿ÐéÎö¹¹£¬¸ÃÀàÊôÓÚ³éÏóÀà£¬ÎÞ·¨ÊµÀý»¯¶ÔÏó
 
-è™šæžæž„è¯­æ³•ï¼š
-    virtual ~ç±»å(){}
+ÐéÎö¹¹Óï·¨£º
+    virtual ~ÀàÃû(){}
 
-çº¯è™šæžæž„è¯­æ³•ï¼š
-    virtual ~ç±»å() = 0;
+´¿ÐéÎö¹¹Óï·¨£º
+    virtual ~ÀàÃû() = 0;
 
-çº¯è™šæžæž„è¿˜å¯ä»¥è¿›è¡Œå®žçŽ°
+´¿ÐéÎö¹¹»¹¿ÉÒÔ½øÐÐÊµÏÖ
 */
 
 class Animal {
@@ -213,31 +213,31 @@ public:
 
 	Animal()
 	{
-		cout << "Animal æž„é€ å‡½æ•°è°ƒç”¨ï¼" << endl;
+		cout << "Animal ¹¹Ôìº¯Êýµ÷ÓÃ£¡" << endl;
 	}
 	virtual void Speak() = 0;
-	virtual ~Animal() = 0;//çº¯è™šæžæž„
+	virtual ~Animal() = 0;//´¿ÐéÎö¹¹
 };
 
-Animal::~Animal()//çº¯è™šæžæž„è¿˜å¯ä»¥è¿›è¡Œå®žçŽ°
+Animal::~Animal()//´¿ÐéÎö¹¹»¹¿ÉÒÔ½øÐÐÊµÏÖ
 {
-	cout << "Animal çº¯è™šæžæž„å‡½æ•°è°ƒç”¨ï¼" << endl;
+	cout << "Animal ´¿ÐéÎö¹¹º¯Êýµ÷ÓÃ£¡" << endl;
 }
 
 class Cat : public Animal {
 public:
 	Cat(string name)
 	{
-		cout << "Catæž„é€ å‡½æ•°è°ƒç”¨ï¼" << endl;
-		m_Name = new string(name);//å­ç±»ä¸­æœ‰å±žæ€§å¼€è¾Ÿåˆ°å †åŒº
+		cout << "Cat¹¹Ôìº¯Êýµ÷ÓÃ£¡" << endl;
+		m_Name = new string(name);//×ÓÀàÖÐÓÐÊôÐÔ¿ª±Ùµ½¶ÑÇø
 	}
 	virtual void Speak()
 	{
-		cout << *m_Name <<  "å°çŒ«åœ¨è¯´è¯!" << endl;
+		cout << *m_Name <<  "Ð¡Ã¨ÔÚËµ»°!" << endl;
 	}
 	~Cat()
 	{
-		cout << "Catæžæž„å‡½æ•°è°ƒç”¨!" << endl;
+		cout << "CatÎö¹¹º¯Êýµ÷ÓÃ!" << endl;
 		if (this->m_Name != NULL) {
 			delete m_Name;
 			m_Name = NULL;
